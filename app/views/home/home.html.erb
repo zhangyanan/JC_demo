@@ -1,0 +1,52 @@
+<%= form_tag :action => :login do %>
+<table width="100%"  height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td bgcolor="#b0ceef">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="607" background=<%= asset_path 'login_02.gif' %>><table width="947" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="299" background=<%= asset_path 'login1.jpg' %> >
+      </tr>
+      <tr>
+        <td height="104"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="407" height="104" background=<%= asset_path 'login_05.gif' %> ></td>
+            <td width="195" background=<%= asset_path 'login_06.gif' %>>
+              <table  width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="25%" height="33"><div align="center"><span class="STYLE3">用 户</span></div></td>
+                <td width="75%" height="33"><input type="text" name="name" style="width:132px; height:23px; border:solid 1px #b0c6cf; font-size:9pt; color:#3a588f;"></td>
+              </tr>
+              <tr>
+                <td height="33"><div align="center"><span class="STYLE3">密 码</span></div></td>
+                <td height="33"><input type="password" name="password" style="width:132px; height:23px; border:solid 1px #b0c6cf; font-size:9pt; color:#3a588f;"></td>
+              </tr>
+              <tr>
+                <td height="35">&nbsp;</td>
+                <td height="30" valign="bottom"><%= image_submit_tag("dl.gif") %> <%= image_tag("cz.gif") %></td>
+              </tr>
+            </table>
+            </td>
+            <td width="345" background=<%= asset_path 'login_07.gif' %>>&nbsp;</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="203" valign="top" style="padding-top:80px;" background=<%= asset_path 'login_08.gif' %> >
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="25"><div align="center" class="STYLE6">Copyright 版权所有:上海麦柯信息技术有限公司 2014</div></td>
+          </tr>
+          <tr>
+            <td height="25"><div align="center" class="STYLE6">电话:025-52607261  32534386@qq.com</div></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td bgcolor="#e2effc">&nbsp;</td>
+  </tr>
+</table>
+<%end %>
