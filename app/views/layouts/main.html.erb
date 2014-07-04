@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+  <title>HR-人事管理系统</title>
+  <link href="/style/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+  <div id="header">
+    <%= render :file => 'layouts/top' %>
+  </div>
+  <div id="content">
+    <div id="left"><%= render :file => 'layouts/left' %></div>
+    <div id="right"><%= render :file => 'layouts/right' %></div>
+  </div>
+  <div id="footer">
+        <div><%= render :file => 'layouts/down' %></div>
+  </div>
+</div>
+</body>
+</html>

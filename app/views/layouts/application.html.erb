@@ -2,12 +2,13 @@
 <html>
 <head>
   <title>JCDemo</title>
+  <%= render :file => 'layouts/public_js' -%>
+  <%= render :file => 'layouts/public_css' -%>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
 <%= yield %>
 
 </body>
