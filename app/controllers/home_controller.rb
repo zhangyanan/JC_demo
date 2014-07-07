@@ -8,6 +8,10 @@ class HomeController < ApplicationController
     end
   end
 
+  def main
+
+  end
+
   def logout
     reset_session
     redirect_to :action => :login
