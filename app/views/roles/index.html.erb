@@ -1,0 +1,120 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+  <title>无标题文档</title>
+</head>
+<style type="text/css">
+    <!--
+    .STYLE1 {	color: #15428b;
+        font-size: 12px;
+    }
+    body { width:100%; margin:0 auto; text-align:left;background:white; }
+    -->
+</style>
+<body>
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+  <td height="27"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="3" height="27"><%= image_tag("main_42.gif",width:'3',height:'27') %></td>
+      <td background="<%= asset_path 'main_43.gif' %>"><table width="100%" height="21" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="padding-left:5px; font-size:9pt;"><table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="3%"><div align="center"><%= image_tag("right01.gif",width:'14',height:'14') %></div></td>
+              <td width="97%" style="font-size:12px; padding-left:10px;" nowrap="nowrap">当前位置  首页 - 档案管理 - 员工档案 </td>
+            </tr>
+          </table></td>
+          <td width="300" ><table width="240" border="0" align="right" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="3" height="21"><%= image_tag("main_46.gif",width:'3',height:'21') %></td>
+              <td background="<%= asset_path 'main_48.gif' %>"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td height="21"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td><div align="center"><%= image_tag("add.gif",width:'16',height:'16') %></div></td>
+                      <td><div align="center"><span class="STYLE1">添加</span></div></td>
+                    </tr>
+                  </table></td>
+                  <td width="2"><%= image_tag("main_49.gif",width:'2',height:'21') %></td>
+                  <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td><div align="center"><%= image_tag("del.gif",width:'13',height:'14') %></div></td>
+                      <td><div align="center"><span class="STYLE1">删除</span></div></td>
+                    </tr>
+                  </table></td>
+                  <td width="2"><%= image_tag("main_49.gif",width:'2',height:'21') %></td>
+                  <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td><div align="center"><%= image_tag("edit.gif",width:'16',height:'14') %></div></td>
+                      <td><div align="center"><span class="STYLE1">修改</span></div></td>
+                    </tr>
+                  </table></td>
+                  <td width="2"><%= image_tag("main_49.gif",width:'2',height:'21') %></td>
+                  <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td><div align="center"><%= image_tag("src.gif",width:'15',height:'13') %></div></td>
+                      <td><div align="center"><span class="STYLE1">查找</span></div></td>
+                    </tr>
+                  </table></td>
+                </tr>
+              </table></td>
+              <td width="3"><%= image_tag("main_51.gif",width:'3',height:'21') %></td>
+            </tr>
+          </table></td>
+        </tr>
+      </table></td>
+      <td width="3"><%= image_tag("main_44.gif") %></td>
+    </tr>
+  </table></td>
+</tr>
+<tr>
+  <td valign="top" bgcolor="#FFFFFF" style="border-left:solid 1px #7a99c2; border-bottom:solid 1px #7a99c2; border-right:solid 1px #7a99c2; padding-top:2px; padding-left:3px; padding-right:3px;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>
+        <table class="simpleTable">
+        <tr>
+          <th  class="tab_firstline">编号</th>
+          <th class="tab_firstline">名称</th>
+          <th class="tab_firstline">描述</th>
+          <th class="tab_firstline">创建时间</th>
+          <th class="tab_firstline_last">更新时间</th>
+        </tr>
+        <% @roles.each do |role| %>
+        <tr>
+          <td class="td1"><%= role.id %></td>
+          <td class="td1"><%= role.name %></td>
+          <td class="td1"><%= role.description %></td>
+          <td class="td1"><%= role.created_at %></td>
+          <td class="td1"><%= role.updated_at %></td>
+        </tr>
+        <% end %>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td class="tab_inf"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="43%" height="35" valign="middle" nowrap="nowrap" class="STYLE1">页次 1/3 页 每页 30 共 3 页 </td>
+          <td width="57%"><table width="245" border="0" align="right" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="31" height="20"><%= image_tag("rs_44.gif",width:'29',height:'20') %></td>
+              <td width="31"><%= image_tag("rs_46.gif",width:'29',height:'20') %></td>
+              <td width="31"><%= image_tag("rs_48.gif",width:'29',height:'20') %></td>
+              <td width="31"><%= image_tag("rs_50.gif",width:'29',height:'20') %></td>
+              <td width="32" class="STYLE1"><div align="center">转到 </div></td>
+              <td width="32" class="STYLE1"><div align="center">
+                <input type="text" name="textfield">
+              </div></td>
+              <td width="17"><div align="center"><span class="STYLE1">页</span></div></td>
+              <td width="40"><div align="center"><%= image_tag("rs_52.gif",width:'29',height:'20') %></div></td>
+            </tr>
+          </table></td>
+        </tr>
+      </table></td>
+    </tr>
+  </table></td>
+</tr>
+</table>
+</body>
+</html>
