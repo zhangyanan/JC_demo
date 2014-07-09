@@ -1,6 +1,45 @@
-<h1>Editing role</h1>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>修改角色</title>
+</head>
+<style type="text/css">
+    <!--
+    .STYLE1 {
+        color: #15428b;
+        font-size: 12px;
+    }
 
-<%= render 'form' %>
+    body {
+        width: 100%;
+        margin: 0 auto;
+        text-align: left;
+        background: white;
+    }
 
-<%= link_to 'Show', @role %> |
-<%= link_to 'Back', roles_path %>
+    -->
+</style>
+<body>
+<%= title_bar %>
+  <%= form_for :role, {:url => {:action => :update,:id => params[:id] } } do |f| %>
+    <fieldset style="width:35%;margin-left:300px;margin-top:100px;">
+      <table class="resultTable">
+        <tr>
+          <td align="right">名称:</td>
+          <td><%= f.text_field :name, :size => "30", :class => "input_text" %></td>
+        </tr>
+        <tr>
+          <td align="right">描述:</td>
+          <td><%= f.text_field :description, :size => "30", :class => "input_text" %></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <%= f.submit "修改", :class => "button_blue" %>
+            <%= f.button '删除' ,:class => "button_blue" %>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+  <% end %>
+</body>
+</html>
