@@ -10,6 +10,8 @@ body{
 }
 #header{
     height:20%;
+    border:blue;
+    /*float:left;*//*设置浮动，实现多列效果，div+Css布局中很重要的*/
 }
 
 #content{
@@ -20,6 +22,7 @@ body{
     height:100%;
     width:15%;
     float:left;/*设置浮动，实现多列效果，div+Css布局中很重要的*/
+
 }
 #right{
     height:100%;
@@ -31,9 +34,11 @@ body{
     width:100%;
 }
 #iframeStyle {width:100%;height:100%;border:0px;}
-html{font-size:9pt; color:#15428b;}
-a:active,a:focus{outline:none;}
+
 img{border:0px;}
+font{font-size: 12px;}
+
+/*还没用*/
 .menu{height:65px;}
 .menu ul{list-style:none;margin:0px;padding:0px;}
 .menu ul li{list-style:none; display: inline; float:left; margin-right:3px; height:65px;}
@@ -47,7 +52,6 @@ img{border:0px;}
 
 
 
-.tab_inf{line-height:35px; padding-left:15px; padding-right:15px;}
-input{width:30px; height:20px; font-size:9pt; border:solid 1px #99b6db; text-align:center;}
+
 
 

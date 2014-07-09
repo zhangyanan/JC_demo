@@ -12,6 +12,7 @@
   <div id="content">
     <div id="left"><%= render :file => 'layouts/left' %></div>
     <div id="right">
+      <div id="loader" style="display:none;"><span class="icon_loader">加载中...</span></div>
       <iframe id="iframeStyle" name="iframeStyle" frameborder="0" scrolling="auto" src="<%= url_for :controller => :home, :action => :main %>"></iframe>
     </div>
   </div>
