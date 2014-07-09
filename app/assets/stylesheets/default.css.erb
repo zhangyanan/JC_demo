@@ -6,9 +6,50 @@
 .simpleTable .tab_firstline{background:url(<%= asset_path 'tbg.gif'%>); line-height:26px; border-left: solid 1px #bccbdd;border-top: solid 1px #bccbdd;border-bottom: solid 1px #bccbdd; text-align:center; font-weight:bolder; font-size:12px; color:#15428b; cursor:hand;}
 .simpleTable .tab_firstline_last{background:url(tbg.gif); line-height:26px; border :solid 1px #bccbdd;text-align:center; font-weight:bolder;font-size:12px; color:#15428b;cursor:hand;}
 .simpleTable .td1{border-left: solid 0px #bccbdd; text-align:center; font-size:12px;color:#15428b;}
-/*.simpleTable .td2{border-right: solid 1px #bccbdd;border-left: solid 1px #bccbdd;text-align:center;font-size:12px;color:#15428b; line-height:25px;}*/
-/*.simpleTable .td3{border-left: solid 1px #bccbdd; background:#e6f0f9;text-align:center;font-size:12px;color:#15428b; line-height:25px;}*/
-/*.simpleTable .td4{border-right: solid 1px #bccbdd;border-left: solid 1px #bccbdd;background:#e6f0f9;text-align:center;font-size:12px;color:#15428b; line-height:25px;}*/
-/*.simpleTable .tab_lastline{border-left: solid 1px #bccbdd; border-bottom:solid 1px #bccbdd;text-align:center; line-height:25px;}*/
-/*.simpleTable .tab_lastline_last{border-left: solid 1px #bccbdd; border-right:solid 1px #bccbdd; border-bottom:solid 1px #bccbdd;text-align:center}*/
-/*.simpleTable .tab_inf{line-height:35px; padding-left:15px; padding-right:15px;}*/
+
+/*分页图标变手型*/
+span{display:block; float:left; width:auto; height:20px; line-height:20px; cursor:pointer;}
+/*   分页  */
+.page{width:auto; height:20px; margin:4px 10px; _display:inline;}
+.page span{padding-left:20px; background-repeat:no-repeat; margin-right:5px;}
+.page .page_first{background:url(<%= asset_path 'page_triangle.gif'%>) 0px 0px scroll;}
+.page .page_first_no{background:url(<%= asset_path 'page_triangle.gif'%>) 0px -20px scroll;}
+.page .page_prev{background:url(<%= asset_path 'page_triangle.gif'%>) 0px -40px scroll;}
+.page .page_prev_no{background:url(<%= asset_path 'page_triangle.gif'%>) 0px -60px scroll;}
+.page .page_next{background:url(<%= asset_path 'page_triangle.gif'%>) 0px -80px scroll;}
+.page .page_next_no{background:url(<%= asset_path 'page_triangle.gif'%>) 0px -100px scroll;}
+.page .page_last{background:url(<%= asset_path 'page_triangle.gif'%>) 0px -120px scroll;}
+.page .page_last_no{background:url(<%= asset_path 'page_triangle.gif'%>) 0px -140px scroll;}
+.page .page_go{background-image:url(<%= asset_path 'page_go.gif'%>); background-position:0px 0px; padding-left:32px;}
+.page .page_go:hover{background-position:0px -20px;}
+.page .page_text{padding:0px;line-height:18px;}
+input.input_page{width:45px;font-size:15px;  text-align:center; background:url(<%= asset_path 'input_bg.png' %>) repeat-x left top scroll; border:1px solid #B5B8C8;}
+/*加载时图片*/
+.icon_loader{background:url(<%= asset_path 'ajax-loader.gif'%>) no-repeat left center scroll; padding-left:22px;}
+
+
+/*  --- table样式 --------------------  */
+/*   resultTable：提交表单用TABLE样式  */
+.resultTable{border-collapse:collapse;border:1px #eee solid;border-color:#FFFFFF;width:100%;font-size:15px; margin:5px 0px 0px 5px; _display:inline; float:left;}
+.resultTable th, .resultTable td{line-height:20px; height:20px; padding:6px;}
+.resultTable th{font-weight:normal;text-align:right;vertical-align:top;line-height:20px;white-space:nowrap;border-color:#FFFFFF; width:120px;}
+.resultTable td em{color:#D0D0D0; font-style:normal; padding:0px 2px;font-size: 15px;}
+.resultTable .title{background:#FFFFFF url(<%= asset_path 'th_bg2.png' %>) no-repeat left center scroll;text-align:left;font-weight:700;padding-left:10px; margin:0px; }
+.resultTable .title span{margin-top:3px; font-size:15px;}
+.resultTable td a{color:#0068D8;text-decoration:underline}
+.resultTable td a:hover{color:#E46600;text-decoration:underline}
+/*输入框*/
+input{padding:0px 2px; margin:0 2px; font-size:14px; vertical-align:middle; height:20px;}
+input.input_text{width:145px; height:18px; background:url(<%= asset_path 'input_bg.png'%>) repeat-x left top scroll; border:1px solid #B5B8C8;}
+/* 按钮 */
+.button_blue{background:url(<%= asset_path 'button_blue.gif' %>) no-repeat scroll; background-position:0px 0px; width:77px; height:24px; line-height:24px; font-size:18px; color:#00296C; text-align:center; padding:0px; margin-right:10px;border: 0px;cursor: pointer;}
+.button_blue:hover{background-position:0px -24px;}
+/*当前位置的bar*/
+.title_bar{width:100%;height:28px;line-height: 28px; font-size:12px;padding:0px 0px;border:0;background: url(<%= asset_path 'main_43.gif' %>)}
+/*文字为一行时：设置其为垂直居中*/
+.title_bar span {height:28px;line-height: 28px;}
+/*设置图片垂直居中*/
+.title_bar img {vertical-align:middle;}
+/*link_to:样式设置*/
+a{ text-decoration:none;color:black; }
+

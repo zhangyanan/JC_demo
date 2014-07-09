@@ -1,83 +1,63 @@
+#encoding:utf-8
 class RolesController < ApplicationController
-  # GET /roles
-  # GET /roles.json
+
   def index
-    @roles = Role.all
-
-    respond_to do |format|
-      format.html # main.html.erb
-      format.json { render json: @roles }
-    end
+    @title = "当前位置 角色列表"
+    @roles = set_paginate Role.order("id ASC")
   end
 
-  # GET /roles/1
-  # GET /roles/1.json
-  def show
-    @role = Role.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @role }
-    end
-  end
-
-  # GET /roles/new
-  # GET /roles/new.json
   def new
+    @title = "当前位置 新建角色"
     @role = Role.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @role }
-    end
   end
 
-  # GET /roles/1/edit
   def edit
+    @title = "当前位置 修改角色"
     @role = Role.find(params[:id])
   end
 
-  # POST /roles
-  # POST /roles.json
   def create
     @role = Role.new(params[:role])
-
-    respond_to do |format|
-      if @role.save
-        format.html { redirect_to @role, notice: 'Role was successfully created.' }
-        format.json { render json: @role, status: :created, location: @role }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @role.errors, status: :unprocessable_entity }
-      end
+    if @role.save
+       redirect_to :action => :index
+    else
+       redirect_to :action => :new
     end
   end
 
-  # PUT /roles/1
-  # PUT /roles/1.json
   def update
     @role = Role.find(params[:id])
-
-    respond_to do |format|
-      if @role.update_attributes(params[:role])
-        format.html { redirect_to @role, notice: 'Role was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @role.errors, status: :unprocessable_entity }
-      end
+    if @role.update_attributes(params[:role])
+      redirect_to :action => :index
+    else
+      redirect_to :action => :back
     end
   end
 
-  # DELETE /roles/1
-  # DELETE /roles/1.json
-  def destroy
+  def delete
     @role = Role.find(params[:id])
-    @role.destroy
+    #if @role.used?
+    #  flash[:message] = "角色被使用，不能删除!"
+    #else
+      @role.destroy
+      flash[:message] = "删除成功!"
+    #
+    #end
+    redirect_to :action => :index
+  end
 
-    respond_to do |format|
-      format.html { redirect_to roles_url }
-      format.json { head :no_content }
+  def enable
+    Role.transaction do
+      role = Role.find params[:id]
+      role.update_attributes state: Role::ENABLED
     end
   end
+
+  def disable
+    Role.transaction do
+      role = Role.find params[:id]
+      role.update_attributes state: Role::DISABLED
+    end
+  end
+
 end
