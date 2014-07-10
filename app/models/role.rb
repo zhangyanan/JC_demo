@@ -1,6 +1,8 @@
 class Role < ActiveRecord::Base
   attr_accessible :description, :id, :name
-  has_many :user
+
+  has_many :role_users
+  has_many :users, :through => :role_users
 
 #  role 状态:启用 禁用
   ENABLED = 1
@@ -15,7 +17,6 @@ class Role < ActiveRecord::Base
   end
 
   def used?
-    !Role.find_by_user_id(user_id).empty?
+    !users.empty?
   end
-
 end
