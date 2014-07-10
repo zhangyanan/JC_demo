@@ -1,5 +1,5 @@
 #encoding:utf-8
-class RolesController < ApplicationController
+class RoleController < ApplicationController
 
   def index
     @title = "当前位置 角色列表"
@@ -19,9 +19,9 @@ class RolesController < ApplicationController
   def create
     @role = Role.new(params[:role])
     if @role.save
-       redirect_to :action => :index
+      redirect_to :action => :index
     else
-       redirect_to :action => :new
+      redirect_to :action => :new
     end
   end
 
@@ -36,13 +36,12 @@ class RolesController < ApplicationController
 
   def delete
     @role = Role.find(params[:id])
-    #if @role.used?
-    #  flash[:message] = "角色被使用，不能删除!"
-    #else
+    if @role.used?
+      flash[:message] = "角色被使用，不能删除!"
+    else
       @role.destroy
       flash[:message] = "删除成功!"
-    #
-    #end
+    end
     redirect_to :action => :index
   end
 

@@ -1,6 +1,6 @@
-class UsersController < ApplicationController
-  # GET /users
-  # GET /users.json
+class UserController < ApplicationController
+  # GET /user
+  # GET /user.json
   def index
     @users = User.all
 
@@ -10,8 +10,8 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1
-  # GET /users/1.json
+  # GET /user/1
+  # GET /user/1.json
   def show
     @user = User.find(params[:id])
 
@@ -21,8 +21,8 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/new
-  # GET /users/new.json
+  # GET /user/new
+  # GET /user/new.json
   def new
     @user = User.new
 
@@ -32,13 +32,13 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1/edit
+  # GET /user/1/edit
   def edit
     @user = User.find(params[:id])
   end
 
-  # POST /users
-  # POST /users.json
+  # POST /user
+  # POST /user.json
   def create
     @user = User.new(params[:user])
 
@@ -53,8 +53,8 @@ class UsersController < ApplicationController
     end
   end
 
-  # PUT /users/1
-  # PUT /users/1.json
+  # PUT /user/1
+  # PUT /user/1.json
   def update
     @user = User.find(params[:id])
 
@@ -69,8 +69,8 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
+  # DELETE /user/1
+  # DELETE /user/1.json
   def destroy
     @user = User.find(params[:id])
     @user.destroy
