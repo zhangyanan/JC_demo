@@ -1,10 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>HR人事管理系统--top</title>
 <style type="text/css">
-    <!--
     .STYLE1 {	color: #15428b;
         font-size: 12px;
     }
-    -->
 </style>
+</head>
+<body>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td height="58"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -110,10 +114,11 @@
                   <td width="46" style="cursor:hand" onmouseover="this.style.backgroundImage='url(<%= asset_path 'main_27.gif' %>)';"onmouseout="this.style.backgroundImage='url()';"><div align="center"><%= image_tag("08.gif",width:'31',height:'27') %></div></td>
                 </tr>
                 <tr>
-                  <td height="18"><div align="center">信封</div></td>
-                  <td><div align="center">邮件</div></td>
-                  <td><div align="center">定义 </div></td>
-                  <td><div align="center">联系</div></td>
+                  <td height="18"><div align="center"><%= link_to '信封',:controller => :roles,:action => :index %></div></td>
+                  <td><div align="center"><%= link_to '邮件',:controller => :roles,:action => :index %></div></td>
+                  <td><div align="center"><%= link_to '定义',:controller => :roles,:action => :index %> </div></td>
+                  <td><div align="center">
+                    <a href="<%= url_for :controller => :roles, :action => :index %>" target="iframeStyle">角色</a></div></td>
                 </tr>
               </table></span><em></em></a></li>
               <li><a href="#" onfocus="this.blur"><span><table width="184" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -133,8 +138,10 @@
             </ul>
           </div>
         </td>
-        <td width="3"><%= image_tag("main_01.gif",width:'3',height:'70') %></td>
+        <td width="3"><%= image_tag("main_13.gif",width:'3',height:'70') %></td>
       </tr>
     </table></td>
   </tr>
 </table>
+</body>
+</html>

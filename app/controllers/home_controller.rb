@@ -1,3 +1,4 @@
+#encoding:utf-8
 class HomeController < ApplicationController
 
   def index
@@ -6,6 +7,10 @@ class HomeController < ApplicationController
     else
       render :action => :home ,:layout => 'login'
     end
+  end
+
+  def main
+
   end
 
   def logout
