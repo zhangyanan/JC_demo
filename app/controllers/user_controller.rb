@@ -1,13 +1,10 @@
+#encoding:utf-8
 class UserController < ApplicationController
   # GET /user
   # GET /user.json
   def index
-    @users = User.all
-
-    respond_to do |format|
-      format.html # main.html.erb
-      format.json { render json: @users }
-    end
+    @title = "当前位置 用户列表"
+    @users = set_paginate User.order("id ASC")
   end
 
   # GET /user/1

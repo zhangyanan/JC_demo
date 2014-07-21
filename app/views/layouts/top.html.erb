@@ -114,11 +114,11 @@
                   <td width="46" style="cursor:hand" onmouseover="this.style.backgroundImage='url(<%= asset_path 'main_27.gif' %>)';"onmouseout="this.style.backgroundImage='url()';"><div align="center"><%= image_tag("08.gif",width:'31',height:'27') %></div></td>
                 </tr>
                 <tr>
-                  <td height="18"><div align="center"><%= link_to '信封',:controller => :roles,:action => :index %></div></td>
-                  <td><div align="center"><%= link_to '邮件',:controller => :roles,:action => :index %></div></td>
-                  <td><div align="center"><%= link_to '定义',:controller => :roles,:action => :index %> </div></td>
+                  <td height="18"><div align="center"><%= link_to '信封',:controller => :role,:action => :index %></div></td>
+                  <td><div align="center"><%= link_to '邮件',:controller => :role,:action => :index %></div></td>
+                  <td><div align="center"><a href="<%= url_for :controller => :user, :action => :index %>" target="iframeStyle">用户</a> </div></td>
                   <td><div align="center">
-                    <a href="<%= url_for :controller => :roles, :action => :index %>" target="iframeStyle">角色</a></div></td>
+                    <a href="<%= url_for :controller => :role, :action => :index %>" target="iframeStyle">角色</a></div></td>
                 </tr>
               </table></span><em></em></a></li>
               <li><a href="#" onfocus="this.blur"><span><table width="184" border="0" align="center" cellpadding="0" cellspacing="0">
