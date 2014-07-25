@@ -57,13 +57,26 @@
                 <td width="3" height="21"><%= image_tag("main_46.gif",width:'3',height:'21') %></td>
                 <td background="<%= asset_path 'main_48.gif' %>"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                   <tr>
-                    <td height="21"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <td height="21">
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
                       <tr>
                         <td><div align="center"><%= image_tag("add.gif",width:'16',height:'16') %></div></td>
                         <td><div align="center"><span class="STYLE1"><%= link_to '添加',:action => :new %></span></div></td>
                       </tr>
-                    </table></td>
+                    </table>
+                    </td>
                     <td width="2"><%= image_tag("main_49.gif",width:'2',height:'21') %></td>
+
+                    <td height="21">
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td><div align="center"><%= image_tag("add.gif",width:'16',height:'16') %></div></td>
+                          <td><div align="center"><span class="STYLE1"><%= link_to '头像',:action => :new_avatar %></span></div></td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td width="2"><%= image_tag("main_49.gif",width:'2',height:'21') %></td>
+
                     <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
                       <tr>
                         <td><div align="center"><%= image_tag("del.gif",width:'13',height:'14') %></div></td>
@@ -102,7 +115,6 @@
           <table class="simpleTable">
             <tr>
               <th  class="tab_firstline">编号</th>
-              <th class="tab_firstline">用户头像</th>
               <th class="tab_firstline">用户名</th>
               <th class="tab_firstline">密码</th>
               <th class="tab_firstline">状态</th>
@@ -112,7 +124,6 @@
             <% @users.each do |user| %>
                 <tr>
                   <td class="td1"><%= list_index %></td>
-                  <td class="td1"><%= user_avatar_tag(user,:style => :tiny) %></td>
                   <td class="td1"><%= user.name %></td>
                   <td class="td1"><%= user.password %></td>
                   <td class="td1"><%= user.state %></td>

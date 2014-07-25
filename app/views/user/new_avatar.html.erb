@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>新建角色</title>
+</head>
+<style type="text/css">
+    <!--
+    .STYLE1 {
+        color: #15428b;
+        font-size: 12px;
+    }
+
+    body {
+        width: 100%;
+        margin: 0 auto;
+        text-align: left;
+        background: white;
+    }
+
+    -->
+</style>
+<body>
+<%= title_bar %>
+<form action="http://v0.api.upyun.com/gallery-people/" method="post" enctype="multipart/form-data">
+  <%= upyun_form_input_tag(:return_url => :index ) %>
+  <input type="file" name="file" />
+  <button type="submit">上传头像</button>
+</form>
+</body>
+</html>
+

@@ -99,10 +99,10 @@
                     <td width="46" style="cursor:hand" onMouseOver="this.style.backgroundImage='url(<%= asset_path 'main_27.gif' %>)';"onmouseout="this.style.backgroundImage='url()';"><div align="center"><%= image_tag("04.gif",width:'33',height:'33') %></div></td>
                   </tr>
                   <tr>
-                    <td height="18"><div align="center">图片</div></td>
-                    <td><div align="center">图库</div></td>
-                    <td><div align="center">图形</div></td>
-                    <td><div align="center">注释</div></td>
+                    <td height="18"><div align="center"><%= link_to '图片',:controller => :photo,:action => :index %></div></td>
+                    <td><div align="center"><a href="<%= url_for :controller => :photo, :action => :index %>" target="iframeStyle">图库</a></div></td>
+                    <td><div align="center"><%= link_to '图形',:controller => :photo,:action => :index %></div></td>
+                    <td><div align="center"><%= link_to '注释',:controller => :photo,:action => :index %></div></td>
                   </tr>
                 </table>
 			 </span><em></em></a></li>

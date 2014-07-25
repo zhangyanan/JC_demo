@@ -3,6 +3,5 @@ CarrierWave.configure do |config|
   config.upyun_username = "ivyzhang"
   config.upyun_password = "ivyzhang123."
   config.upyun_bucket = "gallery-people"
-  config.upyun_bucket_domain = "gallery-people.b0.upaiyun.com"
-  #config.upyun_bucket_host = ""
+  config.upyun_bucket_host = "gallery-people.b0.upaiyun.com"
 end
