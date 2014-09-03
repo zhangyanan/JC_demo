@@ -3,9 +3,11 @@ class HomeController < ApplicationController
 
   def index
     if current_user
+      @menus = {}
+      @parent_menus = Menu.where(:parent_menu_id => Menu.root.id)
       home
     else
-      render :action => :home ,:layout => 'login'
+      render :action => :home, :layout => 'login'
     end
   end
 
@@ -20,7 +22,7 @@ class HomeController < ApplicationController
 
   def login
     unless params[:name].blank? || params[:password].blank?
-      if (user = User.find_by_name_and_password(params[:name],params[:password]))
+      if (user = User.find_by_name_and_password(params[:name], params[:password]))
         set_session_user user
       else
         flash[:name] = params[:name]
@@ -31,7 +33,7 @@ class HomeController < ApplicationController
   end
 
   def home
-    render :layout => "main"
+    render :action => :index, :layout => "main"
   end
 
   private :home
