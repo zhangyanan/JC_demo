@@ -1,80 +1,69 @@
 #encoding:utf-8
 class UserController < ApplicationController
-  # GET /user
-  # GET /user.json
   def index
     @title = "当前位置 用户列表"
     @users = set_paginate User.order("id ASC")
   end
 
-  # GET /user/1
-  # GET /user/1.json
   def show
     @user = User.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
-    end
   end
 
-  # GET /user/new
-  # GET /user/new.json
   def new
+    @title = "当前位置 新建用户"
     @user = User.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @user }
-    end
+    render :action => :edit
   end
 
-  # GET /user/1/edit
   def edit
+    @title = "当前位置 修改用户"
     @user = User.find(params[:id])
   end
 
-  # POST /user
-  # POST /user.json
   def create
     @user = User.new(params[:user])
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+      redirect_to :action => :index
+    else
+      render :action => :edit
     end
   end
 
-  # PUT /user/1
-  # PUT /user/1.json
   def update
     @user = User.find(params[:id])
-
-    respond_to do |format|
-      if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { head :no_content }
+    User.transaction do
+      if @user.update_attributes!(@user)
+        redirect_to :action => :index
       else
-        format.html { render action: "edit" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        render :action => :edit
       end
     end
   end
 
-  # DELETE /user/1
-  # DELETE /user/1.json
-  def destroy
+  def delete
     @user = User.find(params[:id])
     @user.destroy
+    redirect_to :action => :index
+  end
 
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
+  def enable_user
+    @user = User.find(params[:id])
+    if @user
+      User.transaction do
+        @user.update_attribute(:state,User::ENABLED)
+      end
     end
+    redirect_to :action => :index
+  end
+
+  def disable_user
+    @user = User.find(params[:id])
+    @user.state = User::DISABLED
+    @user.save
+    #if @user
+    #    @user.update_attribute(:state,User::DISABLED)
+    #    @user.save
+    #end
+    redirect_to :action => :index
   end
 end

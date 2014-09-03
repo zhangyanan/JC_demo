@@ -1,6 +1,49 @@
-<h1>Editing user</h1>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>新建角色</title>
+</head>
+<style type="text/css">
+    <!--
+    .STYLE1 {
+        color: #15428b;
+        font-size: 12px;
+    }
 
-<%= render 'form' %>
+    body {
+        width: 100%;
+        margin: 0 auto;
+        text-align: left;
+        background: white;
+    }
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+    -->
+</style>
+<body>
+<%= title_bar %>
+<%= form_for @user, {:url => {:action => (@user.id ? :update : :create)}} do |f| %>
+    <fieldset style="width:35%;margin-left:300px;margin-top:100px;">
+      <table class="resultTable">
+        <tr>
+          <td align="right">昵称:</td>
+          <td><%= f.text_field :name, :size => "30", :class => "input_text" %></td>
+        </tr>
+        <tr>
+          <td align="right">密码:</td>
+          <td><%= f.password_field :password, :size => "30", :class => "input_text" %></td>
+        </tr>
+        <tr>
+          <td align="right">email:</td>
+          <td><%= f.text_field :email, :size => "30", :class => "input_text" %></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <%= f.submit "保存", :class => "button_blue" %>
+            <%= f.button '重置', :class => "button_blue" %>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+<% end %>
+</body>
+</html>
