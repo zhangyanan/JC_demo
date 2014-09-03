@@ -6,7 +6,6 @@ body{
 #container{
     width:100%;
     margin:0 auto;/*设置整个容器在浏览器中水平居中*/
-    background:#b0c6cf;
 }
 #header{
     height:20%;
