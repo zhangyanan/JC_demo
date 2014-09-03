@@ -3,6 +3,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
   <title>HR-人事管理系统</title>
   <link href="/style/main.css" rel="stylesheet" type="text/css"/>
+  <link href="/style/default.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="container">
@@ -10,7 +11,7 @@
     <%= render :file => 'layouts/top' %>
   </div>
   <div id="content">
-    <div id="left"><%= render :file => 'layouts/left' %></div>
+    <div id="left"><%= yield %></div>
     <div id="right">
       <div id="loader" style="display:none;"><span class="icon_loader">加载中...</span></div>
       <iframe id="iframeStyle" name="iframeStyle" frameborder="0" scrolling="auto" src="<%= url_for :controller => :user, :action => :index %>"></iframe>

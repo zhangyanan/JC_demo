@@ -1,1 +1,38 @@
-<h1>hello index</h1>
+<table width="203" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="27">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="28" height="27"><%= image_tag("main_37.gif", width: '28', height: '27') %></td>
+          <td background="<%= asset_path 'main_39.gif' %>" style="padding-left:5px; padding-top:2px;">
+            <span class="STYLE1">管理菜单</span></td>
+          <td width="27"><%= image_tag("main_40.gif", width: '27', height: '27') %></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" style=" border-left:solid 1px #7a99c2; border-right:solid 1px #7a99c2; border-bottom:solid 1px #7a99c2;">
+      <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td valign="top">
+            <div class="sideMenu">
+              <ul class="menuTree">
+                <% @parent_menus.each do |parent_menu| %>
+                    <li class="menu_parent">
+                      <span></span><a href="<%= parent_menu.url if parent_menu.url %>"><%= parent_menu.name %></a>
+                      <ul>
+                        <% parent_menu.children.each do |menu| %>
+                            <li class="menu_children"><span></span><%= link_to menu.name, :action => menu.url, :target => 'iframeStyle' %></li>
+                        <% end %>
+                      </ul>
+                    </li>
+                <% end %>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
