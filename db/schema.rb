@@ -11,9 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140708090355) do
+ActiveRecord::Schema.define(:version => 20140728085659) do
 
-  create_table "role", :force => true do |t|
+  create_table "menus", :force => true do |t|
+    t.string "name"
+    t.string   "name"
+    t.integer  "parent_menu_id"
+    t.string   "url"
+    t.integer  "right_id"
+    t.string   "state"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "role_users", :force => true do |t|
+    t.integer  "role_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "roles", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at"
@@ -21,17 +39,10 @@ ActiveRecord::Schema.define(:version => 20140708090355) do
     t.string   "state",       :default => "1"
   end
 
-  create_table "roles_users", :force => true do |t|
-    t.integer  "role_id"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "user", :force => true do |t|
+  create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "password"
-    t.string   "state"
+    t.string   "state",      :default => "1"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
