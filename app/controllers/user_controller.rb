@@ -46,24 +46,11 @@ class UserController < ApplicationController
     redirect_to :action => :index
   end
 
-  def enable_user
-    @user = User.find(params[:id])
-    if @user
-      User.transaction do
-        @user.update_attribute(:state,User::ENABLED)
-      end
-    end
-    redirect_to :action => :index
+  def enable
+   simple_enable User
   end
 
-  def disable_user
-    @user = User.find(params[:id])
-    @user.state = User::DISABLED
-    @user.save
-    #if @user
-    #    @user.update_attribute(:state,User::DISABLED)
-    #    @user.save
-    #end
-    redirect_to :action => :index
+  def disable
+   simple_disable User
   end
 end
