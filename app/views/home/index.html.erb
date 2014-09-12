@@ -23,7 +23,7 @@
                       <span></span><a href="<%= parent_menu.url if parent_menu.url %>"><%= parent_menu.name %></a>
                       <ul>
                         <% parent_menu.children.each do |menu| %>
-                            <li class="menu_children"><span></span><%= link_to menu.name, :action => menu.url, :target => 'iframeStyle' %></li>
+                            <li class="menu_children"><span></span><%= link_to  menu.name, url_for(menu.url),:target => 'iframeStyle' %></li>
                         <% end %>
                       </ul>
                     </li>
