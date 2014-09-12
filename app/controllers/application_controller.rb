@@ -2,9 +2,20 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  helper_method :admin?
   def current_user
     User.find session[:user_id] rescue nil
   end
+
+  def current_role
+    current_user.roles.collect{|role|role.name}
+  end
+
+  protected
+  def admin?
+    current_user.roles.collect{|role|role.id}.include?Role.find(1).id
+  end
+
   def set_session_user user
     session[:user_id] = user.id
     session[:p] = []
