@@ -18,4 +18,9 @@ module SimpleEnableDisable
     simple_modify_state model,model::ENABLED
     redirect_to :action => success_action || :index
   end
+
+  def simple_disable model,success_action = nil
+    simple_modify_state model,model::DISABLED
+    redirect_to :action => success_action || :indexs
+  end
 end
