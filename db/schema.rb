@@ -11,17 +11,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140728085659) do
+ActiveRecord::Schema.define(:version => 20140911065534) do
+
+  create_table "card_records", :id => false, :force => true do |t|
+    t.integer "id",                         :null => false
+    t.integer "card_id"
+    t.integer "terminal_id"
+    t.string  "created_at",  :limit => nil
+  end
+
+  create_table "cards", :id => false, :force => true do |t|
+    t.integer "id",                         :null => false
+    t.integer "employee_id"
+    t.string  "created_at",  :limit => nil
+    t.string  "update_at",   :limit => nil
+    t.string  "lost_at",     :limit => nil
+  end
 
   create_table "menus", :force => true do |t|
-    t.string "name"
     t.string   "name"
     t.integer  "parent_menu_id"
     t.string   "url"
     t.integer  "right_id"
     t.string   "state"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rights", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "state"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "role_users", :force => true do |t|
