@@ -118,21 +118,24 @@
               <th class="tab_firstline">用户名</th>
               <th class="tab_firstline">密码</th>
               <th class="tab_firstline">状态</th>
-              <th class="tab_firstline_last">邮箱</th>
-              <th class="tab_firstline_last">操作</th>
+              <th class="tab_firstline">邮箱</th>
+              <th class="tab_firstline">操作</th>
             </tr>
             <% @users.each do |user| %>
                 <tr>
                   <td class="td1"><%= list_index %></td>
                   <td class="td1"><%= user.name %></td>
                   <td class="td1"><%= user.password %></td>
-                  <td class="td1"><%= user.state %></td>
+                  <td class="td1"><%= user.state_text %></td>
                   <td class="td1"><%= user.email %></td>
                   <td class="td1">
-                    <%= link_to  image_tag("user.gif"),:action => :enable_user,:id => user.id %>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <%= link_to  image_tag("sx.gif"),:action => :disable_user,:id => user.id %>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <%= link_to  image_tag("edit.gif"),:action => :edit,:id => user.id %>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <%= link_to  image_tag("del.gif"),{:action => :delete ,:id => user.id}, data: { confirm: "Are you sure?" }%>
+                    <% if user.state.to_i == User::ENABLED  %>
+                    <%= link_to  '[启用]',:action => :enable,:id => user.id %>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <%else%>
+                    <%= link_to  '[禁用]',:action => :disable,:id => user.id %>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <% end %>
+                    <%= link_to  '[编辑]',:action => :edit,:id => user.id %>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <%= link_to  '[删除]',{:action => :delete ,:id => user.id}, data: { confirm: "Are you sure?" }%>
                   </td>
                 </tr>
             <% end %>
