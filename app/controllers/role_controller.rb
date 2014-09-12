@@ -14,6 +14,7 @@ class RoleController < ApplicationController
   def edit
     @title = "当前位置 修改角色"
     @role = Role.find(params[:id])
+    #@rights = @role.rights
   end
 
   def create
@@ -46,17 +47,11 @@ class RoleController < ApplicationController
   end
 
   def enable
-    Role.transaction do
-      role = Role.find params[:id]
-      role.update_attributes state: Role::ENABLED
-    end
+   simple_enable Role
   end
 
   def disable
-    Role.transaction do
-      role = Role.find params[:id]
-      role.update_attributes state: Role::DISABLED
-    end
+   simple_disable Role
   end
 
 end
