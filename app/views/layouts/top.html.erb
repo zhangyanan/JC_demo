@@ -22,7 +22,7 @@
                   <tr>
                     <td valign="middle"><div align="center"> <%= image_tag("computer.gif", height: '15', width: '14') %></div></td>
                     <td valign="bottom"><div align="center"><%= image_tag("sx.gif", height: '12', width: '12')%> </div></td>
-                    <td valign="middle"><div align="center"><%= link_to image_tag("user.gif", height: '15', width: '13',alt:'退出'),'/home/logout'  %> </div></td>
+                    <td valign="middle"><div align="center"><%= link_to image_tag("user.gif", height: '15', width: '13',:title => '退出'),'/home/logout'  %> </div></td>
                     <td valign="middle"><div align="left"><%= image_tag("save.gif", height: '13', width: '16')%> </div></td>
                   </tr>
                 </table></td>
@@ -129,10 +129,10 @@
                   <td width="46" style="cursor:hand" onmouseover="this.style.backgroundImage='url(<%= asset_path 'main_27.gif' %>)';"onmouseout="this.style.backgroundImage='url()';"><div align="center"><%= image_tag("12.gif",width:'24',height:'24') %></div></td>
                 </tr>
                 <tr>
-                  <td height="18"><div align="center">统计</div></td>
-                  <td><div align="center">表格</div></td>
-                  <td><div align="center">字体</div></td>
-                  <td><div align="center">分栏</div></td>
+                  <td height="18"><div align="center"><a href="<%= url_for :controller => :palace, :action => :index %>" target="iframeStyle">统计</a></div></td>
+                  <td><div align="center"><a href="<%= url_for :controller => :palace, :action => :index %>" target="iframeStyle">宫历</a></div></td>
+                  <td><div align="center"><a href="<%= url_for :controller => :palace, :action => :index %>" target="iframeStyle">字体</a></div></td>
+                  <td><div align="center"><a href="<%= url_for :controller => :palace, :action => :index %>" target="iframeStyle">分栏</a></div></td>
                 </tr>
               </table></span><em></em></a></li>
             </ul>
