@@ -21,8 +21,8 @@
 </style>
 <body>
 <%= title_bar %>
-  <%= form_for :role, {:url => {:action => :update,:id => params[:id] } } do |f| %>
-    <fieldset style="width:35%;margin-left:300px;margin-top:100px;">
+<%= form_for(:role, {:url => {:action => :update, :id => params[:id]}} ) do |f| %>
+    <fieldset style="width:65%;margin-left:160px;margin-top:80px;">
       <table class="resultTable">
         <tr>
           <td align="right">名称:</td>
@@ -33,16 +33,30 @@
           <td><%= f.text_field :description, :size => "30", :class => "input_text" %></td>
         </tr>
         <tr>
-          <table><tr><td></td></tr></table>
+          <td align="right">权限：</td>
+          <td>
+            <table>
+              <% @rights.each_slice(5) do |rights| %>
+                  <tr>
+                    <% rights.each do |right| %>
+                        <td><%= check_box_tag "role[rights][]", right, @role.has_right?(right) %>
+                          <%= label_tag right, right.name %>
+                        </td>
+                    <% end %>
+                  </tr>
+              <% end %>
+            </table>
+          </td>
+
         </tr>
         <tr>
           <td colspan="2" align="center">
             <%= f.submit "修改", :class => "button_blue" %>
-            <%= f.button '删除' ,:class => "button_blue" %>
+            <%= f.button '删除', :class => "button_blue" %>
           </td>
         </tr>
       </table>
     </fieldset>
-  <% end %>
+<% end %>
 </body>
 </html>
