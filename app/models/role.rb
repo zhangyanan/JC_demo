@@ -3,6 +3,7 @@ class Role < ActiveRecord::Base
   include CommonActiveRecord
   has_many :role_users
   has_many :users, :through => :role_users
+  has_many :role_rights
   has_many :rights, :through => :role_rights
 
 #  role 状态:启用 禁用
@@ -19,5 +20,9 @@ class Role < ActiveRecord::Base
 
   def used?
     !users.empty?
+  end
+
+  def has_right? name
+    self.rights.collect{|role|[role.name]}.include?(name)
   end
 end
