@@ -1,14 +1,19 @@
 #encoding:utf-8
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  #helper_method:让controller中的方法在view中可用
+  helper_method :admin?,:current_user,:logged_in?,:current_role
 
-  helper_method :admin?
   def current_user
     User.find session[:user_id] rescue nil
   end
 
+  def logged_in?
+    current_user != nil
+  end
+
   def current_role
-    current_user.roles.collect{|role|role.name}
+    current_user.roles.first.name
   end
 
   protected
@@ -18,7 +23,6 @@ class ApplicationController < ActionController::Base
 
   def set_session_user user
     session[:user_id] = user.id
-    session[:p] = []
   end
 
   def action_params

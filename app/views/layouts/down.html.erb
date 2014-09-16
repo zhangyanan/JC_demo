@@ -16,9 +16,9 @@
     <td height="25" background="<%= asset_path 'main_67.gif' %>" style="padding-left:40px;">
       <table width="270" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td width="90" height="24" style="padding-top:3px;"><div align="center"><span class="STYLE1">用户:admin</span></div></td>
+        <td width="90" height="24" style="padding-top:3px;"><div align="center"><span class="STYLE1">用户:<%= current_user.name if logged_in? %></span></div></td>
         <td width="10" ><%= image_tag("main_65.gif",width:'2') %></td>
-        <td width="82" class="STYLE1"  style="padding-top:3px;"><div align="center">角色：管理员</div></td>
+        <td width="132" class="STYLE1"  style="padding-top:3px;"><div align="center">角色：<%= current_role%></div></td>
         <td width="2"><%= image_tag("main_65.gif",width:'2') %></td>
         <td width="86" class="STYLE1"  style="padding-top:3px;"><div align="center">短信:1</div></td>
       </tr>
