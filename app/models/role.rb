@@ -6,9 +6,6 @@ class Role < ActiveRecord::Base
   has_many :role_rights
   has_many :rights, :through => :role_rights
 
-#  role 状态:启用 禁用
-  ENABLED = 1
-  DISABLED = 0
 
   def enabled?
     self.state == ENABLED
