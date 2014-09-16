@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
 
   def role_name
-    self.roles.collect{|role| role.name}
+    self.roles.collect{|role| role.name}.first
   end
 
 
