@@ -1,3 +1,8 @@
+.STYLE1 {color: #15428b; font-size: 12px;}
+/*输入框*/
+input{padding: 0px 2px;margin:0 2px;border:1px solid #b5b8c8;font-size:15px;}
+input.input_text{width:145px;background: url('/images/input_bg.png') repeat-x left top scroll;border:1px solid #b5b8c8;}
+input.input_search{width:150px;background:url(/images/input_bg.png) repeat-x left top scroll; border:1px solid #B5B8C8;}
 /*simple_table*/
 .simpleTable {width:100%; cellspacing:0; cellpadding:0;border:solid 1px #bccbdd}
 .simpleTable .white{background:white;}
