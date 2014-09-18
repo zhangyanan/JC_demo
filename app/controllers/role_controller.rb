@@ -1,5 +1,6 @@
 #encoding:utf-8
 class RoleController < ApplicationController
+  include SimpleEnableDisable
 
   def index
     @title = "当前位置 角色列表"
@@ -15,7 +16,6 @@ class RoleController < ApplicationController
     @title = "当前位置 修改角色"
     @role = Role.find(params[:id])
     @rights = @role.rights
-    p "111111111111111"
     p @rights
   end
 
@@ -29,12 +29,12 @@ class RoleController < ApplicationController
   end
 
   def update
+    p "1111111111111"
     p params[:role][:rights]
     role = Role.find(params[:id])
-    rights = params[:role][:rights] || []
     if role.update_attributes(params[:role])
-      role.role_rights = params[:role][:rights]
-      p role.rights.collect{|right|[right.name,right.id]}
+      #role.rights = params[:role][:rights]
+      #role.save
     else
       redirect_to :action => :index
     end
