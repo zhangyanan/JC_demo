@@ -14,7 +14,9 @@ class RoleController < ApplicationController
   def edit
     @title = "当前位置 修改角色"
     @role = Role.find(params[:id])
-    #@rights = @role.rights
+    @rights = @role.rights
+    p "111111111111111"
+    p @rights
   end
 
   def create
@@ -27,11 +29,14 @@ class RoleController < ApplicationController
   end
 
   def update
-    @role = Role.find(params[:id])
-    if @role.update_attributes(params[:role])
-      redirect_to :action => :index
+    p params[:role][:rights]
+    role = Role.find(params[:id])
+    rights = params[:role][:rights] || []
+    if role.update_attributes(params[:role])
+      role.role_rights = params[:role][:rights]
+      p role.rights.collect{|right|[right.name,right.id]}
     else
-      redirect_to :action => :back
+      redirect_to :action => :index
     end
   end
 
@@ -54,4 +59,14 @@ class RoleController < ApplicationController
    simple_disable Role
   end
 
+  def query
+    @title = "当前位置 角色搜索"
+    if params[:name].blank?
+      roles = set_paginate Role.where('1=2')
+    else
+      roles = Role.where('name like ?',"%#{params[:name]}%")
+    end
+    @roles = set_paginate roles
+    render :action => :index
+  end
 end

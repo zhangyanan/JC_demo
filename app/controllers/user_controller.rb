@@ -53,4 +53,16 @@ class UserController < ApplicationController
   def disable
    simple_disable User
   end
+
+  def query
+    @title = "当前位置 用户搜索"
+    if params[:name].blank?
+      users = set_paginate User.where('1=2')
+    else
+      users = User.where('name like ?',"%#{params[:name]}%")
+    end
+    p users
+    @users = set_paginate users
+    render :action => :index
+  end
 end
