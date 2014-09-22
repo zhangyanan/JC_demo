@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def admin?
-    current_user.roles.collect{|role|role.id}.include?Role.find(1).id
+    logged_in? && current_user.roles.collect{|role|role.id}.include?Role.find(1).id
   end
 
   def set_session_user user
