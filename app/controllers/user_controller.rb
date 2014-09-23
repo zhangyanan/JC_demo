@@ -1,5 +1,6 @@
 #encoding:utf-8
 class UserController < ApplicationController
+  include SimpleEnableDisable
   def index
     @title = "当前位置 用户列表"
     @users = set_paginate User.order("id ASC")
