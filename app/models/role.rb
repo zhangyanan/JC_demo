@@ -6,6 +6,9 @@ class Role < ActiveRecord::Base
   has_many :role_rights
   has_many :rights, :through => :role_rights
 
+  attr_accessible :name,:description,:state
+
+  accepts_nested_attributes_for :rights
 
   def enabled?
     self.state == ENABLED
@@ -19,7 +22,7 @@ class Role < ActiveRecord::Base
     !users.empty?
   end
 
-  def has_right? name
-    self.rights.collect{|role|[role.name]}.include?(name)
+  def has_right? id
+    !self.role_rights.where(right_id: id).blank?
   end
 end
