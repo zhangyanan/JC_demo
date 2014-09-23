@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @right.id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @right.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @right.description %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @right.state %>
+</p>
+
+
+<%= link_to 'Edit', edit_right_path(@right) %> |
+<%= link_to 'Back', rights_path %>
