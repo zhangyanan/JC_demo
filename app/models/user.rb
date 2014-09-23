@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :role_users
   has_many :roles, through: :role_users
 
+  attr_accessible :name,:description,:state
 
   def role_name
     self.roles.collect{|role| role.name}.first
