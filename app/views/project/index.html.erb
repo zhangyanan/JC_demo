@@ -79,7 +79,7 @@
        <div class="projectName">
          <% @projects.each do |project| %>
             <div class="projectInfo">
-              <div class="p_name"><%= link_to (project_and_creator project),:controller => :task,:action => :index %></div>
+              <div class="p_name"><%= link_to (project_and_creator project),:controller => :task,:action => :index,:id => project.id,:target => 'iframeStyle' %></div>
               <div class="p_desc"><%= project.description %></div>
               <div class="p_date">Last activity: <%= project.updated_at %></div>
             </div>
