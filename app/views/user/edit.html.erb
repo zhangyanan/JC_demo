@@ -25,12 +25,12 @@
     <fieldset style="width:35%;margin-left:300px;margin-top:100px;">
       <table class="resultTable">
         <tr>
-          <td align="right">昵称:</td>
+          <td align="right">用户名:</td>
           <td><%= f.text_field :name, :size => "30", :class => "input_text" %></td>
         </tr>
         <tr>
-          <td align="right">密码:</td>
-          <td><%= f.password_field :password, :size => "30", :class => "input_text" %></td>
+          <td align="right">角色:</td>
+          <td><%= f.select('user[role]', Role.all.collect{|r| [r.name, r.id] }) %></td>
         </tr>
         <tr>
           <td align="right">email:</td>
