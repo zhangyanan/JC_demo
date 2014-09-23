@@ -114,9 +114,9 @@
                   <td class="td1"><%= user.email %></td>
                   <td class="td1">
                     <% if user.state.to_i == User::ENABLED  %>
-                    <%= link_to  '[启用]',:action => :enable,:id => user.id %>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <%else%>
                     <%= link_to  '[禁用]',:action => :disable,:id => user.id %>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <%else%>
+                    <%= link_to  '[启用]',:action => :enable,:id => user.id %>&nbsp;&nbsp;&nbsp;&nbsp;
                     <% end %>
                     <%= link_to  '[编辑]',:action => :edit,:id => user.id %>&nbsp;&nbsp;&nbsp;&nbsp;
                     <%= link_to  '[删除]',{:action => :delete ,:id => user.id}, data: { confirm: "Are you sure?" }%>
