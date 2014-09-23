@@ -1,13 +1,9 @@
+#encoding:utf-8
 class TaskController < ApplicationController
-  # GET /tasks
-  # GET /tasks.json
   def index
+    @title = "任务管理 问题列表"
+    @project = Project.find(params[:id])
     @tasks = Task.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @tasks }
-    end
   end
 
   # GET /tasks/1
