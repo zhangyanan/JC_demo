@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140911065534) do
+ActiveRecord::Schema.define(:version => 20140922074053) do
 
   create_table "card_records", :id => false, :force => true do |t|
     t.integer "id",                         :null => false
@@ -38,12 +38,28 @@ ActiveRecord::Schema.define(:version => 20140911065534) do
     t.datetime "updated_at"
   end
 
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "creator"
+    t.integer  "state"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "tasks_count", :default => 0
+  end
+
   create_table "rights", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.integer  "state"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "role_rights", :id => false, :force => true do |t|
+    t.integer "id"
+    t.integer "role_id"
+    t.integer "right_id"
   end
 
   create_table "role_users", :force => true do |t|
@@ -59,6 +75,17 @@ ActiveRecord::Schema.define(:version => 20140911065534) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "state",       :default => "1"
+  end
+
+  create_table "tasks", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "operation"
+    t.integer  "state"
+    t.integer  "creator"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "project_id"
   end
 
   create_table "users", :force => true do |t|
