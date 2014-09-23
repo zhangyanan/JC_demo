@@ -2,7 +2,7 @@
 class ProjectController < ApplicationController
   def index
     @title = "当前位置 项目列表"
-    @projects =  Project.order("name")
+    @projects = Project.includes(:user)
   end
 
   # GET /projects/1
