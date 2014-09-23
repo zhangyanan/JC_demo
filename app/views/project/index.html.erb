@@ -79,9 +79,9 @@
        <div class="projectName">
          <% @projects.each do |project| %>
             <div class="projectInfo">
-              <div class="p_name"><%= project.name %></div>
+              <div class="p_name"><%= project.project_creator.name ? project.project_creator.name : '' %>/<%= project.name %></div>
               <div class="p_desc"><%= project.description %></div>
-              <div class="p_date"><%= project.updated_at %></div>
+              <div class="p_date">Last activity: <%= project.updated_at %></div>
             </div>
             <div class="line"></div>
          <% end %>

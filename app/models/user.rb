@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, ImageUploader
   has_many :role_users
   has_many :roles, through: :role_users
+  has_many :projects
+
 
   attr_accessible :name,:description,:state
 
