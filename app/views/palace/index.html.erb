@@ -1,0 +1,21 @@
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr align="center" style="background-color: #A3B9DF; height : 20px;border:solid 1px #0068D8">
+    <td>周</td>
+    <td width="13%">一</td>
+    <td width="13%">二</td>
+    <td width="13%">三</td>
+    <td width="13%">四</td>
+    <td width="13%">五</td>
+    <td width="13%">六</td>
+    <td width="13%">日</td>
+  </tr>
+  <tr>
+    <% @end_date.times do |date| %>
+        <td><%= date %></td>
+        <% if date/6 == 0 %>
+            </tr>
+            <tr>
+        <% end %>
+    <% end %>
+  </tr>
+</table>
