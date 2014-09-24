@@ -1,6 +1,29 @@
-<h1>Editing task</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasks_path %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>编辑任务</title>
+</head>
+<body>
+<%= title_bar %>
+<%= form_for @task, {:url => {:action => (@task.id ? :update : :create)}} do |f| %>
+    <fieldset style="width:65%;margin-left:160px;margin-top:30px;">
+      <table class="resultTable">
+        <tr>
+          <td align="right">名称:</td>
+          <td><%= f.text_field :name, :size => "30", :class => "input_long" %></td>
+        </tr>
+        <tr>
+          <td align="right">描述:</td>
+          <td><%= text_area(:task, :description, size: "62x15",:class => 'task')%></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <%= f.submit "保存", :class => "button_blue" %>
+            <%= link_to '返回', :action => :index %>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+<% end %>
+</body>
+</html>
