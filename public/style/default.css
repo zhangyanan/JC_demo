@@ -426,3 +426,59 @@ span.pro_title{
 .project_and_creator{
     color:#2FA0BB;
 }
+.taskGroup{
+    width:250px;
+    float:left;
+    height:300px;
+    margin-left: 20px;
+    margin-top: 10px;
+    background-color:#F9F9F9;
+}
+.task_pro_name{
+    margin-top: 20px;
+    font-size: 140%;
+    margin-left:40px;
+}
+.task_pro_desc{
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size:80%;
+}
+.taskLine{
+    margin-top: 5px;
+    width: 90%;
+    height: 10px;
+    font-size: 1px;
+    border-bottom: #EEEEEE 1px solid;
+    clear: both;
+    LINE-HEIGHT: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.repo{
+    width:90%;
+    height:80px;
+    margin-left: 10px;
+    font-size: 90%;
+}
+.repoSize{
+    margin-left: 20px;
+    margin-top:10px;
+}
+.repoSize label{
+    color:#A4A9AD;
+}
+.taskCommit{
+
+    width:90%;
+    height:80px;
+    margin-left: 10px;
+    font-size: 90%;
+}
+.repoCommit{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.repoCommit a{
+    color:#6FB6E3;
+}

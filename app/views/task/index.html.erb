@@ -74,11 +74,19 @@
          <div  class="taskGroup">
            <div class="task_pro_name"><%= @project.name %></div>
            <div class="task_pro_desc"><%= @project.description %></div>
+           <div class="taskLine"></div>
+           <div class="repo">
+           <div class="repoSize"><label> Repo size is </label>23.31 MB</div>
+           <div class="repoSize"><label>Created at </label><%= @project.created_at.to_date %></div>
+           <div class="repoSize"><label>Owned by </label><%= @project.project_creator.name %></div>
+           </div>
+           <div class="taskLine"></div>
+           <div class="taskCommit">
+           <div class="repoCommit"><%= link_to '0 commits' %></div>
+           <div class="repoCommit"><%= link_to '64 branches' %></div>
+           <div class="repoCommit"><%= link_to '14 tags' %></div>
+           </div>
          </div>
-        <div class="line"></div>
-        <div></div>
-        <div class="line"></div>
-        <div></div>
       </div>
 
 
