@@ -56,16 +56,16 @@
       </tr>
     </table></td>
   </tr>
-  <tr><td><span class="pro_title">My Issues</span></td></tr>
+  <tr><td><span class="pro_title">My Issues</span><span class="issueLength">Issues<span class="length"><%= @tasks.length %></span><span></td></tr>
   <tr><td><div class="line"></div></td></tr>
   <tr><td>
     <div class="projectContent">
       <div class="projectName">
         <% @tasks.each do |task| %>
-            <div class="projectInfo">
-              <div class="p_name"><%= task.name %></div>
-              <div class="p_desc"><%= task.description %></div>
-              <div class="p_date">Last activity: <%= task.updated_at %></div>
+            <div class="taskInfo">
+              <div class="t_name"><%= link_to task.name,:action => :edit,:id => task.id %></div>
+              <div class="t_desc"><%= task.description %></div>
+              <div class="t_date">Last activity: <%= task.updated_at.to_date %></div>
             </div>
             <div class="line"></div>
         <% end %>
