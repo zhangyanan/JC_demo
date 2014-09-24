@@ -23,11 +23,11 @@
               <% @rights.each_slice(5) do |rights| %>
                   <tr>
                     <% rights.each do |right| %>
-                  <td><%= check_box_tag 'role[rights][]',right, @role.has_right?(right) %>
-                    <%= label_tag right, right.name %>
-                  </td>
-              <% end %>
-              </tr>
+                        <td><%= check_box_tag 'role[rights][]',right, @role.has_right?(right) %>
+                          <%= label_tag right, right.name %>
+                        </td>
+                    <% end %>
+                  </tr>
               <% end %>
             </table>
           </td>
@@ -36,7 +36,7 @@
         <tr>
           <td colspan="2" align="center">
             <%= f.submit "修改", :class => "button_blue" %>
-            <%= link_to '返回', :action => :index %>
+            <%= link_to '返回', {:action => :index} %>
           </td>
         </tr>
       </table>
