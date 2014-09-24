@@ -48,7 +48,7 @@
       </tr>
     </table></td>
   </tr>
-  <tr><td><span class="pro_title">My Issues</span><span class="issueLength">Issues<span class="length"><%= @tasks.length %></span><span></td></tr>
+  <tr><td><%= form_for :task,:url => {:action => :new } do |f| %><span style="margin-left: 20px;margin-top: 10px;"><%= f.submit  'new issue',:class=> :button_blue %></span><% end %><span class="issueLength">Issues<span class="length"><%= @tasks.length %></span><span></td></tr>
   <tr><td><div class="line"></div></td></tr>
   <tr><td>
     <div class="projectContent">
@@ -62,7 +62,7 @@
             <div class="line"></div>
         <% end %>
       </div>
-
+        <% if @project %>
          <div  class="taskGroup">
            <div class="task_pro_name"><%= @project.name %></div>
            <div class="task_pro_desc"><%= @project.description %></div>
@@ -80,7 +80,14 @@
            </div>
          </div>
       </div>
-
+       <% else %>
+          <div class="Group1">
+            <div class="g_item" style="background-color: #F1F1F1"><li class="fore"></li><li class="content"><label>All</label><label>4</label></li></div>
+            <div class="g_item"><li class="fore"></li><li class="content"><label>Personal</label><label>0</label></li></div>
+            <div class="g_item"><li class="fore"></li><li class="content"><label>Joined</label><label>0</label></li></div>
+            <div class="g_item"><li class="fore"></li><li class="content"><label>Owned</label><label>0</label></li></div>
+          </div>
+       <% end %>
 
     </div>
   </td></tr>
