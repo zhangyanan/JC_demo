@@ -2,7 +2,12 @@
     color: #15428b;
     font-size: 12px;
 }
-
+body {
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+    background: white;
+}
 .line {
     margin-top: 5px;
     width: 98%;
@@ -544,5 +549,12 @@ span.pro_title {
     height: 20px;
     line-height: 20px;
     text-align: center;
+    background-color: #EEEEEE;
+}
+.proUrl {
+    float:left;
+    width: 700px;
+    height: 40px;
+    margin-top: 10px;
     background-color: #EEEEEE;
 }
