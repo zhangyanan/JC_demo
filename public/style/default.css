@@ -2,12 +2,14 @@
     color: #15428b;
     font-size: 12px;
 }
+
 body {
     width: 100%;
     margin: 0 auto;
     text-align: left;
     background: white;
 }
+
 .line {
     margin-top: 5px;
     width: 98%;
@@ -34,6 +36,16 @@ input.input_text {
     border: 1px solid #b5b8c8;
 }
 
+input.input_long {
+    width: 500px;
+    background: url(/images/input_bg.png) repeat-x left top scroll;
+    border: 1px solid #B5B8C8;
+}
+textarea.task{
+    width: 503px;
+    background: url(/images/input_bg.png) repeat-x left top scroll;
+    border: 1px solid #B5B8C8;
+}
 input.input_search {
     width: 150px;
     background: url(/images/input_bg.png) repeat-x left top scroll;
@@ -449,8 +461,9 @@ span.pro_title {
 
 .task_pro_name {
     margin-top: 20px;
-    font-size: 140%;
+    font-size: 120%;
     margin-left: 40px;
+    font-family: 'consolas';
 }
 
 .task_pro_desc {
@@ -516,7 +529,7 @@ span.pro_title {
     width: 100%;
     height: 40px;
     color: #2FA0BB;
-    font-size: 100%;
+    font-size: 90%;
     font-weight: bold;
     margin-top: 10px;
 }
@@ -537,24 +550,54 @@ span.pro_title {
 }
 
 .issueLength {
-    margin-left:800px;
+    margin-left: 800px;
     margin-top: 10px;
     width: 70px;
     height: 20px;
 }
 
 .issueLength span.length {
-    float:right;
+    float: right;
     width: 20px;
     height: 20px;
     line-height: 20px;
     text-align: center;
     background-color: #EEEEEE;
 }
+
 .proUrl {
-    float:left;
+    float: left;
     width: 700px;
     height: 40px;
     margin-top: 10px;
     background-color: #EEEEEE;
+}
+.Group1{
+    width: 250px;
+    float: left;
+    height: 300px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.Group1 .g_item {
+    width: 250px;
+    height: 40px;
+    margin-top: 5px;
+}
+div.Group1 li.content {
+    border: solid 1px #F1F1F1;
+    width: 243px;
+    height: 40px;
+    background-color: #FFFFFF;
+    float: left;
+    list-style: none;
+    font-family: 'consolas';
+}
+
+div.Group1 li.fore {
+    width: 5px;
+    height: 42px;
+    background-color: #2FA0BB;
+    float: left;
+    list-style: none;
 }
