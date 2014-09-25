@@ -20,7 +20,7 @@ class TaskController < ApplicationController
   # GET /tasks/new.json
   def new
     @title = "当前位置 新建任务"
-    @task = Task.new
+    @task = Task.create(:project_id => params[:project_id])
   end
 
   def edit
@@ -28,9 +28,13 @@ class TaskController < ApplicationController
     @task = Task.find(params[:id])
   end
 
-  def create
+  def save
+    p params[:task]
     @task = Task.new(params[:task])
-    if @task.save
+    @task.state = 1
+    @task.creator = session[:user_id]
+    if @task
+      @task.save
       redirect_to :action => :index
     end
   end

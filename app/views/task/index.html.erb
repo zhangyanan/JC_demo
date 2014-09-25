@@ -48,7 +48,16 @@
       </tr>
     </table></td>
   </tr>
-  <tr><td><%= form_for :task,:url => {:action => :new} do |f| %><span style="margin-left: 20px;margin-top: 10px;"><%= f.submit  'new issue',:class=> :button_blue %></span><% end %><span class="issueLength">Issues<span class="length"><%= @tasks.length ? @tasks.length : @project.tasks.size %></span></span></td></tr>
+  <tr><td>
+    <% if @project %>
+    <%= form_for :task, url: {action: "new",project_id: @project.id } do |f| %>
+        <span style="margin-left: 20px;margin-top: 10px;">
+          <%= f.submit  'new issue',:class=> :button_blue %>
+        </span>
+    <% end %>
+    <% end %>
+
+    <span class="issueLength">Issues<span class="length"><%= @tasks.length ? @tasks.length : @project.tasks.size %></span></span></td></tr>
   <tr><td><div class="line"></div></td></tr>
   <tr><td>
     <div class="projectContent">
