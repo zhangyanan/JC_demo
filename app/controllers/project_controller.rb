@@ -70,4 +70,12 @@ class ProjectController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def query
+    @title = "当前位置 项目搜索"
+    projects1 = Project.where("name like ?","%#{params[:name].downcase}%")
+    projects2 =  Project.where("name like ?","%#{params[:name].upcase}%")
+    @projects = projects1 + projects2
+    render :action => :index
+  end
 end
