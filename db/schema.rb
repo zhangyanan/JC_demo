@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140923075038) do
+ActiveRecord::Schema.define(:version => 20140925021141) do
 
   create_table "card_records", :id => false, :force => true do |t|
     t.integer "id",                         :null => false
@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(:version => 20140923075038) do
     t.integer  "state"
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
-    t.integer  "tasks_count", :default => 0
     t.string   "project_url"
+    t.integer  "tasks_count", :default => 0
   end
 
   create_table "rights", :force => true do |t|
