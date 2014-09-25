@@ -4,8 +4,10 @@ class TaskController < ApplicationController
     @title = "任务管理 问题列表"
     if params[:id]
       @project = Project.find(params[:id])
+      @tasks = Task.where("project_id = ?",params[:id])
+    else
+      @tasks = Task.all
     end
-    @tasks = Task.all
   end
 
   # GET /tasks/1
@@ -19,7 +21,6 @@ class TaskController < ApplicationController
   def new
     @title = "当前位置 新建任务"
     @task = Task.new
-    render :action => :edit
   end
 
   def edit
@@ -55,5 +56,11 @@ class TaskController < ApplicationController
       format.html { redirect_to tasks_url }
       format.json { head :no_content }
     end
+  end
+
+  def query
+    @title = "当前位置 任务搜索"
+    @tasks = Task.where("name like ?","%#{params[:name]}%")
+    render :action => :index
   end
 end

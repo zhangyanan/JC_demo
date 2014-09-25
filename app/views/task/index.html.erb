@@ -19,7 +19,7 @@
                 </tr>
               </table></td>
               <td width="265px" >
-                <%= form_tag({:controller => :project,:action => :query},:name => 'searchForm',:id => 'searchForm')  do%>
+                <%= form_tag({:controller => :task,:action => :query},:name => 'searchForm',:id => 'searchForm')  do%>
                     <span style="font-size: 12px;">issue名称:<%= text_field_tag :name,'',:class => 'input_search' %></span>
                     <table width="50px" border="0" align="right" cellpadding="0" cellspacing="0" style="text-align: center">
                       <tr>
@@ -48,7 +48,7 @@
       </tr>
     </table></td>
   </tr>
-  <tr><td><%= form_for :task,:url => {:action => :new } do |f| %><span style="margin-left: 20px;margin-top: 10px;"><%= f.submit  'new issue',:class=> :button_blue %></span><% end %><span class="issueLength">Issues<span class="length"><%= @tasks.length %></span><span></td></tr>
+  <tr><td><%= form_for :task,:url => {:action => :new} do |f| %><span style="margin-left: 20px;margin-top: 10px;"><%= f.submit  'new issue',:class=> :button_blue %></span><% end %><span class="issueLength">Issues<span class="length"><%= @tasks.length ? @tasks.length : @project.tasks.size %></span></span></td></tr>
   <tr><td><div class="line"></div></td></tr>
   <tr><td>
     <div class="projectContent">
