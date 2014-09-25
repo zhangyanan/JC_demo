@@ -20,7 +20,7 @@ class TaskController < ApplicationController
   # GET /tasks/new.json
   def new
     @title = "当前位置 新建任务"
-    @task = Task.create(:project_id => params[:project_id])
+    @task = Task.new(:project_id => params[:project_id])
   end
 
   def edit
@@ -41,12 +41,13 @@ class TaskController < ApplicationController
   # PUT /tasks/1
   # PUT /tasks/1.json
   def update
-    @task = Task.find(params[:task])
-    if @task && @task.update_attributes(params[:task])
+    @task = Task.find(params[:id])
+    if params[:task]
+      @task.update_attributes(params[:task])
       @task.save
       flash[:notice] = "任务更新完成"
     end
-    redirect_to :action => :index
+    redirect_to :action => :index,:id => :params[:project_id]
   end
 
   # DELETE /tasks/1
