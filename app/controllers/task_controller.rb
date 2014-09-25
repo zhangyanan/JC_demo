@@ -34,7 +34,7 @@ class TaskController < ApplicationController
     @task.creator = session[:user_id]
     if @task
       @task.save
-      redirect_to :action => :index
+      redirect_to :action => :index,:id => @task.project_id
     end
   end
 
