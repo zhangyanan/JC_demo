@@ -29,9 +29,8 @@ class TaskController < ApplicationController
   end
 
   def save
-    p params[:task]
     @task = Task.new(params[:task])
-    @task.state = 1
+    @task.state = CommonActiveRecord::ENABLED
     @task.creator = session[:user_id]
     if @task
       @task.save
