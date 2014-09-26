@@ -5,7 +5,8 @@
 </head>
 <body>
 <%= title_bar %>
-<%= form_for @task, {:url => {:action => (@task.id ? :update : :create)}} do |f| %>
+<%= form_for @task, {:url => {:action => :update,:id => params[:id]}} do |f| %>
+    <%= f.hidden_field :project_id %>
     <fieldset style="width:65%;margin-left:160px;margin-top:30px;">
       <table class="resultTable">
         <tr>
