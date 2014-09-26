@@ -47,7 +47,7 @@ class TaskController < ApplicationController
       @task.save
       flash[:notice] = "任务更新完成"
     end
-    redirect_to :action => :index,:id => params[:project_id]
+    redirect_to :action => :index,:id => params[:task][:project_id]
   end
 
   # DELETE /tasks/1
