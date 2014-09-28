@@ -2,6 +2,7 @@
 class ProjectController < ApplicationController
   def index
     @title = "当前位置 项目列表"
+    @groups = Group.all
     @projects = Project.includes(:user)
   end
 
