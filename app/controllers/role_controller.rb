@@ -29,8 +29,6 @@ class RoleController < ApplicationController
   end
 
   def update
-    p "1111111111111"
-    p params[:role][:rights]
     role = Role.find(params[:id])
     if role.update_attributes(params[:role])
       #role.rights = params[:role][:rights]
