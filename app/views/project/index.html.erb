@@ -82,7 +82,7 @@
             <div class="projectInfo">
               <div class="p_name"><%= link_to (project_and_creator project),:controller => :task,:action => :index,:id => project.id,:target => 'iframeStyle' %></div>
               <div class="p_desc"><%= project.description %></div>
-              <div class="p_date">Last activity: <%= project.updated_at.to_date %></div>
+              <div class="p_date">Last activity: <%= project.updated_at.to_date %><span style="color:#f0f0f0;font-size: 90%;float:right;"><%= link_to '[删 除]',:action => :delete,:id => project.id %></span></div>
             </div>
             <div class="line"></div>
          <% end %>
