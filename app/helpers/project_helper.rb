@@ -4,4 +4,8 @@ module ProjectHelper
       project.project_creator.name+ "/"+ project.name
     end
   end
+
+  def number_of_project_in_group group_id
+    return Project.where("group_id = ?",group_id).count
+  end
 end
