@@ -3,14 +3,6 @@
   <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
   <title>项目列表</title>
 </head>
-<style type="text/css">
-    <!--
-    .STYLE1 {	color: #15428b;
-        font-size: 12px;
-    }
-    body { width:100%; margin:0 auto; text-align:left;background:white; }
-    -->
-</style>
 <script type="text/javascript">
     $(function(){
         $("div.pro_item").mouseover(function(){
@@ -66,7 +58,16 @@
       </tr>
     </table></td>
   </tr>
-  <tr><td><span class="pro_title">My Projects</span></td></tr>
+  <tr><td>
+      <span class="pro_title">My Projects</span>
+      <span style="float: right;">
+       <%= form_for :group, url: {action: "new"} do |f| %>
+        <span style="margin-left: 20px;margin-top: 10px;">
+          <%= f.submit 'new project', :class => :button_blue %>
+        </span>
+    <% end %>
+    </span>
+  </td></tr>
   <tr><td><div class="line"></div></td></tr>
   <tr><td>
   <div class="projectContent">
@@ -81,7 +82,7 @@
             <div class="projectInfo">
               <div class="p_name"><%= link_to (project_and_creator project),:controller => :task,:action => :index,:id => project.id,:target => 'iframeStyle' %></div>
               <div class="p_desc"><%= project.description %></div>
-              <div class="p_date">Last activity: <%= project.updated_at %></div>
+              <div class="p_date">Last activity: <%= project.updated_at.to_date %></div>
             </div>
             <div class="line"></div>
          <% end %>
