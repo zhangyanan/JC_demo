@@ -72,10 +72,10 @@
   <tr><td>
   <div class="projectContent">
        <div  class="projectGroup">
-         <div class="pro_item" style="background-color: #F1F1F1"><li class="fore"></li><li class="content"><label>All</label><label>4</label></li></div>
-         <div class="pro_item"><li class="fore"></li><li class="content"><label>Personal</label><label>0</label></li></div>
-         <div class="pro_item"><li class="fore"></li><li class="content"><label>Joined</label><label>0</label></li></div>
-         <div class="pro_item"><li class="fore"></li><li class="content"><label>Owned</label><label>0</label></li></div>
+         <div class="pro_item" style="background-color: #F1F1F1"><li class="fore"></li><li class="content"><label class="labelGroup">All</label><label class="labelTag"><%= @projects.length %></label></li></div>
+         <div class="pro_item"><li class="fore"></li><li class="content"><label class="labelGroup">Personal</label><label  class="labelTag">0</label></li></div>
+         <div class="pro_item"><li class="fore"></li><li class="content"><label class="labelGroup">Joined</label><label  class="labelTag">0</label></li></div>
+         <div class="pro_item"><li class="fore"></li><li class="content"><label class="labelGroup">Owned</label><label  class="labelTag">0</label></li></div>
        </div>
        <div class="projectName">
          <% @projects.each do |project| %>
