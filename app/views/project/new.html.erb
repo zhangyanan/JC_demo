@@ -15,7 +15,8 @@
         </tr>
         <tr>
           <td align="right">组:</td>
-          <td><%= f.text_field :group_id, :size => "30", :class => "input_high" %></td>
+          <td>
+            <%= f.select :group_id,Group.all.collect{|g|[g.name.capitalize,g.id]},html_options = {:class => "selectHigh"}%></td>
         </tr>
         <tr>
           <td align="right">项目URL:</td>
