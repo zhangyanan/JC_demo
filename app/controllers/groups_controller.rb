@@ -32,7 +32,7 @@ class GroupsController < ApplicationController
     redirect_to :action => :index
   end
 
-  def destroy
+  def delete
     @group = Group.find(params[:id])
     @group.destroy
     redirect_to :action => :index
