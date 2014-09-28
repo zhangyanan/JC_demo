@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>编辑组</title>
+</head>
+<body>
+<%= title_bar %>
+<%= form_for @group, {:url => {:action => :update }} do |f| %>
+    <fieldset style="width:35%;margin-left:300px;margin-top:100px;">
+      <table class="resultTable">
+        <tr>
+          <td align="right">名称:</td>
+          <td><%= f.text_field :name, :size => "30", :class => "input_text" %></td>
+        </tr>
+        <tr>
+          <td align="right">描述:</td>
+          <td><%= f.text_field :description, :size => "30", :class => "input_text" %></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <%= f.submit "保存", :class => "button_blue" %>
+            <%= f.button '重置' ,:class => "button_blue" %>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+<% end %>
+</body>
+</html>
