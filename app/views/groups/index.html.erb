@@ -94,7 +94,7 @@
                   <div class="taskInfo">
                     <div class="t_name"><%= link_to group.name, :action => :edit, :id => group.id %></div>
                     <div class="t_desc"><%= group.description %></div>
-                    <div class="t_date">Last activity: <%= group.updated_at.to_date %> &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to '[删除]',:action => :destroy,:id => group.id  %></div>
+                    <div class="t_date">Last activity: <%= group.updated_at.to_date %> <span style="color:#f0f0f0;font-size: 90%;float:right;"><%= link_to '[删除]',:action => :delete,:id => group.id %></span></div>
                   </div>
                   <div class="line"></div>
               <% end %>
