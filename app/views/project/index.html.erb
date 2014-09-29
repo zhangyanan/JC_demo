@@ -73,7 +73,7 @@
   <div class="projectContent">
        <div  class="projectGroup">
         <% @groups.each do |group|%>
-        <div class="pro_item"><li class="fore"></li><li class="content"><label class="labelGroup"><%= group.name.capitalize %></label><label class="labelTag"><%= number_of_project_in_group group.id  %></label></li></div>
+        <div class="pro_item"><li class="fore"></li><li class="content"><label class="labelGroup"><%= link_to group.name.capitalize,:action => :index,:group_id => group.id %></label><label class="labelTag"><%= number_of_project_in_group group.id  %></label></li></div>
         <%end%>
        </div>
        <div class="projectName">
