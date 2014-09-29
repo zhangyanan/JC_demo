@@ -1,9 +1,12 @@
 #encoding:utf-8
 class ProjectController < ApplicationController
   def index
+    @projects = Project.includes(:user)
+    if params[:group_id]
+      @projects = @projects.where("group_id = ?", params[:group_id])
+    end
     @title = "当前位置 项目列表"
     @groups = Group.all
-    @projects = Project.includes(:user)
   end
 
 
