@@ -90,7 +90,7 @@
       </div>
        <% else %>
           <div class="Group1">
-            <div class="g_item"><li class="fore"></li><li class="content"><label  class="labelGroup"><%= link_to 'All',:action => :index %></label><label class="labelTag"><%= @tasks.length %></label></li></div>
+            <div class="g_item"><li class="fore"></li><li class="content"><label  class="labelGroup"><%= link_to 'All',:action => :index %></label><label class="labelTag"><%= all_count %></label></li></div>
             <div class="g_item"><li class="fore"></li><li class="content"><label  class="labelGroup"><%= link_to 'Open',:action => :index,:state => CommonActiveRecord::ENABLED %></label><label class="labelTag"><%= open_count %></label></li></div>
             <div class="g_item"><li class="fore"></li><li class="content"><label  class="labelGroup"><%= link_to 'Closed',:action => :index,:state => CommonActiveRecord::DISABLED  %></label><label class="labelTag"><%= close_count %></label></li></div>
           </div>
