@@ -95,6 +95,7 @@
             <th class="tab_firstline">性别</th>
             <th class="tab_firstline">生日</th>
             <th class="tab_firstline">部门</th>
+            <th class="tab_firstline">状态</th>
             <th class="tab_firstline">入职日期</th>
             <th class="tab_firstline">操作</th>
           </tr>
@@ -105,6 +106,7 @@
                 <td class="td1"><%= employee.sex %></td>
                 <td class="td1"><%= employee.birthday.to_date %></td>
                 <td class="td1"><%= employee.department_id %></td>
+                <td class="td1"><%= employee.state %></td>
                 <td class="td1"><%= employee.created_at.to_date %></td>
                 <td class="td1">
                   <%= link_to  '[新增]',:action => :new %>&nbsp;&nbsp;&nbsp;&nbsp;

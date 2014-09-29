@@ -11,6 +11,7 @@ class EmployeesController < ApplicationController
 
 
   def new
+    @title = "当前位置 新增员工"
     @employee = Employee.new
   end
 
@@ -22,6 +23,10 @@ class EmployeesController < ApplicationController
 
   def create
     @employee = Employee.new(params[:employee])
+    Employee.transaction do
+      @employee.save
+    end
+    redirect_to :action => :index
   end
 
 
