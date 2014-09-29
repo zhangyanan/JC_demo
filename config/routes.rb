@@ -1,4 +1,19 @@
 JCDemo::Application.routes.draw do
+  resources :overtimes
+
+
+  resources :records
+
+
+  resources :departments
+
+
+  resources :employees
+
+
+  resources :terminals
+
+
   resources :groups
 
 
