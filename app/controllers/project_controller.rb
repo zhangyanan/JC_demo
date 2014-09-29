@@ -40,7 +40,7 @@ class ProjectController < ApplicationController
     Project.transaction do
       @project.destroy
     end
-    redirect_to :action => :index,:group_id => :params[:group_id]
+    redirect_to :action => :index,:group_id => params[:group_id]
   end
 
   def query
