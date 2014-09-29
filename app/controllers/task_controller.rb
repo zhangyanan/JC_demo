@@ -2,11 +2,13 @@
 class TaskController < ApplicationController
   def index
     @title = "任务管理 问题列表"
+    @tasks = Task
     if params[:id]
       @project = Project.find(params[:id])
-      @tasks = Task.where("project_id = ?",params[:id])
-    else
-      @tasks = Task.all
+      @tasks = @tasks.where("project_id = ?", params[:id])
+    end
+    if params[:state]
+      @tasks = @tasks.where("state = ?", params[:state])
     end
   end
 
@@ -30,7 +32,7 @@ class TaskController < ApplicationController
     @task.creator = session[:user_id]
     if @task
       @task.save
-      redirect_to :action => :index,:id => @task.project_id
+      redirect_to :action => :index, :id => @task.project_id
     end
   end
 
@@ -41,7 +43,7 @@ class TaskController < ApplicationController
       @task.save
       flash[:notice] = "任务更新完成"
     end
-    redirect_to :action => :index,:id => params[:task][:project_id]
+    redirect_to :action => :index, :id => params[:task][:project_id]
   end
 
   def delete
@@ -53,7 +55,7 @@ class TaskController < ApplicationController
 
   def query
     @title = "当前位置 任务搜索"
-    @tasks = Task.where("name like ?","%#{params[:name]}%")
+    @tasks = Task.where("name like ?", "%#{params[:name]}%")
     render :action => :index
   end
 end
