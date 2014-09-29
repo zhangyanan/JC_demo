@@ -56,7 +56,7 @@
         </span>
     <% end %>
     <% end %>
-    <span class="issueLength">Issues<span class="length"><%= @tasks.length ? @tasks.length : @project.tasks.size %></span></span></td></tr>
+    <span class="issueLength">Issues<span class="length"><%= @project.tasks.size %></span></span></td></tr>
   <tr><td><div class="line"></div></td></tr>
   <tr><td>
     <div class="projectContent">
@@ -93,7 +93,14 @@
             <div class="g_item"><li class="fore"></li><li class="content"><label  class="labelGroup"><%= link_to 'All',:action => :index %></label><label class="labelTag"><%= all_count %></label></li></div>
             <div class="g_item"><li class="fore"></li><li class="content"><label  class="labelGroup"><%= link_to 'Open',:action => :index,:state => CommonActiveRecord::ENABLED %></label><label class="labelTag"><%= open_count %></label></li></div>
             <div class="g_item"><li class="fore"></li><li class="content"><label  class="labelGroup"><%= link_to 'Closed',:action => :index,:state => CommonActiveRecord::DISABLED  %></label><label class="labelTag"><%= close_count %></label></li></div>
+            <div style="margin-top: 30px;"></div>
+            projects:
+            <% Project.order('updated_at').first(2).each do |project|%>
+                <div class="g_item"><li class="fore"></li><li class="content"><label class="labelGroup"><%= link_to project.name.capitalize,:action => :index,:id => project.id %></label></li></div>
+            <%end%>
+
           </div>
+
        <% end %>
 
     </div>
