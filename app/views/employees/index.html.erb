@@ -103,7 +103,7 @@
               <tr>
                 <td class="td1"><%= list_index %></td>
                 <td class="td1"><%= employee.name %></td>
-                <td class="td1"><%= employee.sex %></td>
+                <td class="td1"><%= employee.sex.to_i == 1 ? '男' : '女' %></td>
                 <td class="td1"><%= employee.birthday.to_date %></td>
                 <td class="td1"><%= employee.department_id %></td>
                 <td class="td1"><%= employee.state %></td>
