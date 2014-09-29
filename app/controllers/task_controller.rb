@@ -10,14 +10,10 @@ class TaskController < ApplicationController
     end
   end
 
-  # GET /tasks/1
-  # GET /tasks/1.json
   def show
     @task = Task.find(params[:id])
   end
 
-  # GET /tasks/new
-  # GET /tasks/new.json
   def new
     @title = "当前位置 新建任务"
     @task = Task.new(:project_id => params[:project_id])
@@ -38,8 +34,6 @@ class TaskController < ApplicationController
     end
   end
 
-  # PUT /tasks/1
-  # PUT /tasks/1.json
   def update
     @task = Task.find(params[:id])
     if params[:task]
@@ -50,16 +44,11 @@ class TaskController < ApplicationController
     redirect_to :action => :index,:id => params[:task][:project_id]
   end
 
-  # DELETE /tasks/1
-  # DELETE /tasks/1.json
-  def destroy
-    @task = Task.find(params[:id])
-    @task.destroy
-
-    respond_to do |format|
-      format.html { redirect_to tasks_url }
-      format.json { head :no_content }
-    end
+  def delete
+    @task = Task.find params[:id]
+    @task.state = CommonActiveRecord::DISABLED
+    @task.save
+    redirect_to :action => :index
   end
 
   def query
