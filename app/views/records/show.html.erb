@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @record.id %>
+</p>
+
+<p>
+  <b>Terminal:</b>
+  <%= @record.terminal_id %>
+</p>
+
+<p>
+  <b>In out:</b>
+  <%= @record.in_out %>
+</p>
+
+
+<%= link_to 'Edit', edit_record_path(@record) %> |
+<%= link_to 'Back', records_path %>
