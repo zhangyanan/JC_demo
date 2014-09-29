@@ -74,7 +74,7 @@
        <div  class="projectGroup">
         <% @groups.each do |group|%>
         <div class="pro_item"><li class="fore"></li><li class="content"><label class="labelGroup"><%= link_to group.name.capitalize,:action => :index,:group_id => group.id %></label><label class="labelTag"><%= number_of_project_in_group group.id  %></label></li></div>
-        <%end%>
+        <% end %>
        </div>
        <div class="projectName">
          <% @projects.each do |project| %>
@@ -83,8 +83,8 @@
               <div class="p_desc"><%= project.description %></div>
               <div class="p_date">Last activity: <%= project.updated_at.to_date %>
                <%if admin? %>
-                <span style="color:#f0f0f0;font-size: 90%;float:right;"><%= link_to '[编 辑]',:action => :edit,:id => project.id %></span><span style="color:#f0f0f0;font-size: 90%;float:right;"><%= link_to '[删 除]',:action => :delete,:id => project.id %></span>
-               <% end %>
+                <span style="color:#f0f0f0;font-size: 90%;float:right;"><%= link_to '[编 辑]',:action => :edit,:id => project.id %></span><span style="color:#f0f0f0;font-size: 90%;float:right;"><%= link_to '[删 除]',:action => :delete,:id => project.id,:group_id => project.group_id %></span>
+               <%end %>
               </div>
             </div>
             <div class="line"></div>
