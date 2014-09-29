@@ -12,6 +12,7 @@ class EmployeesController < ApplicationController
 
   def new
     @title = "当前位置 新增员工"
+    @states = [["在职",Employee::ONJOIB],["离职",Employee::OFFJOIB,2],["出差",Employee::AWAYJOIB,3],["产假",Employee::MATERNITYlEAVE,4],["陪产假",Employee::PATERNITYlEAVE,5]]
     @employee = Employee.new
   end
 

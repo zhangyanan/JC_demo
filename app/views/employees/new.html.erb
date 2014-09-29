@@ -33,8 +33,8 @@
           <td><%= f.text_field :remark, :size => "30", :class => "input_text" %></td>
         </tr>
         <tr>
-          <td align="center">状态:</td>
-          <td><%= f.text_field :state, :size => "30", :class => "input_text"%></td>
+          <td align="center">就职状态:</td>
+          <td><%= f.select :state, options_for_select(@states),:size => "30", :class => "input_text"%></td>
           <td align="center">到职日期:</td>
           <td><%= f.text_field :expired_at, :size => "30", :class => "input_text",:onclick => "WdatePicker()"  %></td>
         </tr>
