@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @terminal.id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @terminal.name %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @terminal.state %>
+</p>
+
+<p>
+  <b>Remote:</b>
+  <%= @terminal.remote_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_terminal_path(@terminal) %> |
+<%= link_to 'Back', terminals_path %>

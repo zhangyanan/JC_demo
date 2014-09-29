@@ -1,0 +1,29 @@
+<h1>Listing terminals</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>State</th>
+    <th>Remote</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @terminals.each do |terminal| %>
+  <tr>
+    <td><%= terminal.id %></td>
+    <td><%= terminal.name %></td>
+    <td><%= terminal.state %></td>
+    <td><%= terminal.remote_id %></td>
+    <td><%= link_to 'Show', terminal %></td>
+    <td><%= link_to 'Edit', edit_terminal_path(terminal) %></td>
+    <td><%= link_to 'Destroy', terminal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Terminal', new_terminal_path %>
