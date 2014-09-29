@@ -56,7 +56,6 @@
         </span>
     <% end %>
     <% end %>
-
     <span class="issueLength">Issues<span class="length"><%= @tasks.length ? @tasks.length : @project.tasks.size %></span></span></td></tr>
   <tr><td><div class="line"></div></td></tr>
   <tr><td>
@@ -66,7 +65,7 @@
             <div class="taskInfo">
               <div class="t_name"><%= link_to task.name,:action => :edit,:id => task.id %></div>
               <div class="t_desc"><%= task.description %></div>
-              <div class="t_date">Last activity: <%= task.updated_at.to_date %></div>
+              <div class="t_date">Last activity: <%= task.updated_at.to_date %><span style="color:#efefef;float:right;margin-right: 20px;"><%= link_to 'close',:action => :delete,:id => task.id %></span></div>
             </div>
             <div class="line"></div>
         <% end %>
@@ -91,10 +90,9 @@
       </div>
        <% else %>
           <div class="Group1">
-            <div class="g_item" style="background-color: #F1F1F1"><li class="fore"></li><li class="content"><label>All</label><label>4</label></li></div>
-            <div class="g_item"><li class="fore"></li><li class="content"><label>Personal</label><label>0</label></li></div>
-            <div class="g_item"><li class="fore"></li><li class="content"><label>Joined</label><label>0</label></li></div>
-            <div class="g_item"><li class="fore"></li><li class="content"><label>Owned</label><label>0</label></li></div>
+            <div class="g_item"><li class="fore"></li><li class="content"><label  class="labelGroup">All</label><label class="labelTag"><%= @tasks.length %></label></li></div>
+            <div class="g_item"><li class="fore"></li><li class="content"><label  class="labelGroup">Open</label><label class="labelTag"><%= open_count %></label></li></div>
+            <div class="g_item"><li class="fore"></li><li class="content"><label  class="labelGroup">Closed</label><label class="labelTag"><%= close_count %></label></li></div>
           </div>
        <% end %>
 
