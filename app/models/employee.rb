@@ -1,3 +1,4 @@
+#encoding:utf-8
 class Employee < ActiveRecord::Base
   attr_accessible :birthday, :code, :department_id, :expired_at, :id, :name, :remark, :sex, :state
 
@@ -10,4 +11,18 @@ class Employee < ActiveRecord::Base
   MATERNITYlEAVE = 4 #产假
   PATERNITYlEAVE = 5 #陪产假
 
+  def state_text
+    case self.state.to_i
+      when  Employee::ONJOIB
+        '在职'
+      when  Employee::OFFJOIB
+        '离职'
+      when  Employee::AWAYJOIB
+        '出差'
+      when  Employee::MATERNITYlEAVE
+        '产假'
+      when  Employee::PATERNITYlEAVE
+        '陪产假'
+    end
+  end
 end
