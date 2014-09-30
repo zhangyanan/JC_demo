@@ -25,4 +25,8 @@ class Employee < ActiveRecord::Base
         '陪产假'
     end
   end
+
+  def department_name
+    return Department.find(self.department_id).name
+  end
 end
