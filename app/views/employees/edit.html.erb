@@ -1,6 +1,51 @@
-<h1>Editing employee</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @employee %> |
-<%= link_to 'Back', employees_path %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>编辑员工资料</title>
+</head>
+<body>
+<%= title_bar %>
+<%= form_for @employee, {:url => {:action => :update }} do |f| %>
+    <fieldset style="width:50%;margin-left:200px;margin-top:90px;height:60%;">
+      <legend>编辑资料</legend>
+      <table class="resultTable">
+        <tr>
+          <td align="center">姓名:</td>
+          <td><%= f.text_field :name, :size => "30", :class => "input_text" %></td>
+          <td align="center">编号:</td>
+          <td><%= f.text_field :code, :size => "30", :class => "input_text" %></td>
+        </tr>
+        <tr>
+          <td align="center">性别:</td>
+          <td>
+            <%= f.radio_button :sex, 1, checked: true %>男 &nbsp;&nbsp;
+            <%= f.radio_button :sex, 0 %>女
+          </td>
+          <td align="center">生日:</td>
+          <td><%= f.text_field :birthday, :size => "30", :class => "input_text",:onclick => "WdatePicker()" %></td>
+        </tr>
+        <tr>
+          <td align="center">部门:</td>
+          <td>
+            <%=f.select :department_id, Department.all.collect{|d|[d.name,d.id]}%>
+          </td>
+          <td align="center">备注:</td>
+          <td><%= f.text_field :remark, :size => "30", :class => "input_text" %></td>
+        </tr>
+        <tr>
+          <td align="center">就职状态:</td>
+          <td><%= f.select :state, options_for_select(@states),:size => "30", :class => "input_text"%></td>
+          <td align="center">到职日期:</td>
+          <td><%= f.text_field :expired_at, :size => "30", :class => "input_text",:onclick => "WdatePicker()"  %></td>
+        </tr>
+        <tr>
+          <td colspan="4" align="right">
+            <%= f.submit "更新", :class => "button_blue" %>
+            <%= f.button '重置' ,:class => "button_blue" %>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+<% end %>
+</body>
+</html>
