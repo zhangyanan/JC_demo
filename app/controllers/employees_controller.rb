@@ -46,4 +46,9 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
     @employee.destroy
   end
+
+  def query
+    @employees = set_paginate Employee.where("name like ?","%#{params[:name]}%")
+    render :action => :index
+  end
 end
