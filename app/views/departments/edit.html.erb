@@ -1,6 +1,26 @@
-<h1>Editing department</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @department %> |
-<%= link_to 'Back', departments_path %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>编辑部门</title>
+</head>
+<body>
+<%= title_bar %>
+<%= form_for @department, {:url => {:action => :update }} do |f| %>
+    <fieldset style="width:35%;margin-left:300px;margin-top:100px;">
+      <legend>编辑部门</legend>
+      <table class="resultTable">
+        <tr>
+          <td align="right">名称:</td>
+          <td><%= f.text_field :name, :size => "30", :class => "input_text" %></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <%= f.submit "保存", :class => "button_blue" %>
+            <%= f.button '重置' ,:class => "button_blue" %>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+<% end %>
+</body>
+</html>
