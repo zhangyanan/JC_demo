@@ -1,4 +1,7 @@
 JCDemo::Application.routes.draw do
+  resources :cards
+
+
   resources :overtimes
 
 
