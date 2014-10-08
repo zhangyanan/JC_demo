@@ -32,6 +32,9 @@ class ProjectController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
+    @project.update_attributes(params[:project])
+    @project.save
+    redirect_to :action => :index
   end
 
 

@@ -5,9 +5,9 @@
 </head>
 <body>
 <%= title_bar %>
-<%= form_for @project, {:url => {:action => :create }} do |f| %>
+<%= form_for @project, {:url => {:action => :update }} do |f| %>
     <fieldset style="width:35%;margin-left:260px;margin-top:100px;">
-      <legend style="color: #0033cc;">新建项目</legend>
+      <legend style="color: #0033cc;">编辑项目</legend>
       <table class="resultTable">
         <tr>
           <td align="right">名称:</td>
