@@ -14,6 +14,10 @@
           <td><%= f.text_field :name, :size => "30", :class => "input_text" %></td>
         </tr>
         <tr>
+          <td align="right">上级部门:</td>
+          <td><%= f.select :parent_id,options_for_select(Department.all.collect{|d|[d.name,d.id]}) %></td>
+        </tr>
+        <tr>
           <td colspan="2" align="center">
             <%= f.submit "保存", :class => "button_blue" %>
             <%= f.button '重置' ,:class => "button_blue" %>

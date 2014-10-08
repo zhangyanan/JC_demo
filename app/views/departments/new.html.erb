@@ -10,8 +10,12 @@
       <legend>新建部门</legend>
       <table class="resultTable">
         <tr>
-          <td align="right">名称:</td>
+          <td align="right">部门名称:</td>
           <td><%= f.text_field :name, :size => "30", :class => "input_text" %></td>
+        </tr>
+        <tr>
+          <td align="right">上级部门:</td>
+          <td><%= f.select :parent_id,options_for_select(Department.all.collect{|d|[d.name,d.id]}) %></td>
         </tr>
         <tr>
           <td colspan="2" align="center">

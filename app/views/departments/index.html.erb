@@ -1,12 +1,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
   <title>部门列表</title>
 </head>
 <script type="text/javascript">
     $(function () {
 //        查找的form提交
-        $("#searchUser").click(function(){
+        $("#searchUser").click(function () {
             $('#searchForm').submit();
         });
     })
@@ -14,82 +14,100 @@
 <body>
 <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td height="27"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td width="3" height="27"><%= image_tag("main_42.gif",width:'3',height:'27') %></td>
-        <td background="<%= asset_path 'main_43.gif' %>">
-          <table width="100%" height="21" border="0" cellpadding="0" cellspacing="0">
-            <tr>
-              <td style="padding-left:5px; font-size:9pt;"><table border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td width="3%"><div align="center"><%= image_tag("right01.gif",width:'14',height:'14') %></div></td>
-                  <td width="97%" style="font-size:12px; padding-left:10px;" nowrap="nowrap"><%= @title %> </td>
-                </tr>
-              </table></td>
-              <td width="265px" >
-                <%= form_tag({:controller => :departments,:action => :query},:name => 'searchForm',:id => 'searchForm')  do%>
-                    <span class="search_text" style="font-size: 12px;">部门名称:<%= text_field_tag :name,'',:class => 'input_search' %></span>
-                    <table width="50px" border="0" align="right" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td width="3px" height="21"><%= image_tag("main_46.gif",width:'3',height:'21') %></td>
-                        <td background="<%= asset_path 'main_48.gif' %>"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                          <tr>
-                            <td>
-                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                  <td><div align="center"><%= image_tag("src.gif",width:'15',height:'13') %></div></td>
-                                  <td><div align="center"><span class="STYLE1" id="searchUser" >查找</span></div></td>
-                                </tr>
-                              </table>
-                            </td>
-                          </tr>
-                        </table>
-                        </td>
-                      </tr>
-                    </table>
-                    <td width="3"><%= image_tag("main_51.gif",width:'3',height:'21') %></td>
+    <td height="27">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="3" height="27"><%= image_tag("main_42.gif", width: '3', height: '27') %></td>
+          <td background="<%= asset_path 'main_43.gif' %>">
+            <table width="100%" height="21" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td style="padding-left:5px; font-size:9pt;">
+                  <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td width="3%">
+                        <div align="center"><%= image_tag("right01.gif", width: '14', height: '14') %></div>
+                      </td>
+                      <td width="97%" style="font-size:12px; padding-left:10px;" nowrap="nowrap"><%= @title %> </td>
                     </tr>
-                    </table>
-                    </td>
-                <% end %>
-                </tr>
-    </table>
+                  </table>
+                </td>
+                <td width="265px">
+                  <%= form_tag({:controller => :departments, :action => :query}, :name => 'searchForm', :id => 'searchForm') do %>
+                      <span class="search_text" style="font-size: 12px;">部门名称:<%= text_field_tag :name, '', :class => 'input_search' %></span>
+                      <table width="50px" border="0" align="right" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td width="3px" height="21"><%= image_tag("main_46.gif", width: '3', height: '21') %></td>
+                          <td background="<%= asset_path 'main_48.gif' %>">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td>
+                                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                      <td>
+                                        <div align="center"><%= image_tag("src.gif", width: '15', height: '13') %></div>
+                                      </td>
+                                      <td>
+                                        <div align="center"><span class="STYLE1" id="searchUser">查找</span></div>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                      <td width="3"><%= image_tag("main_51.gif", width: '3', height: '21') %></td>
+                      </tr>
+                      </table>
+                      </td>
+                  <% end %>
+                  </tr>
+      </table>
     </td>
     <td width="3"><%= image_tag("main_44.gif") %></td>
   </tr>
-</table></td>
+</table>
+</td>
 </tr>
 <tr>
-  <td valign="top" bgcolor="#FFFFFF" style="border-left:solid 1px #7a99c2; border-bottom:solid 1px #7a99c2; border-right:solid 1px #7a99c2; padding-top:2px; padding-left:3px; padding-right:3px;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td>
-        <table class="simpleTable">
-          <tr>
-            <th  class="tab_firstline">编号</th>
-            <th class="tab_firstline">部门名称</th>
-            <th class="tab_firstline">上级部门</th>
-            <th class="tab_firstline">部门状态</th>
-            <th class="tab_firstline">创建日期</th>
-            <th class="tab_firstline">操作</th>
-          </tr>
-          <% @departments.each do |department| %>
-              <tr>
-                <td class="td1"><%= list_index %></td>
-                <td class="td1"><%= department.name %></td>
-                <td class="td1"><%= department.parent %></td>
-                <td class="td1"><%= department.state %></td>
-                <td class="td1"><%= department.created_at.to_date %></td>
-                <td class="td1">
-                  <%= link_to  '[新增]',:action => :new %>&nbsp;&nbsp;&nbsp;&nbsp;
-                  <%= link_to  '[编辑]',:action => :edit,:id => department.id %>&nbsp;&nbsp;&nbsp;&nbsp;
-                  <%= link_to  '[删除]',:action => :delete,:id => department.id %>&nbsp;&nbsp;&nbsp;&nbsp;
-                </td>
-              </tr>
-          <% end %>
-        </table>
-      </td>
-    </tr>
-  </table></td>
+  <td valign="top" bgcolor="#FFFFFF" style="border-left:solid 1px #7a99c2; border-bottom:solid 1px #7a99c2; border-right:solid 1px #7a99c2; padding-top:2px; padding-left:3px; padding-right:3px;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>
+          <table class="simpleTable">
+            <tr>
+              <th class="tab_firstline">编号</th>
+              <th class="tab_firstline">部门名称</th>
+              <th class="tab_firstline">上级部门</th>
+              <th class="tab_firstline">部门状态</th>
+              <th class="tab_firstline">创建日期</th>
+              <th class="tab_firstline">操作</th>
+            </tr>
+            <% @departments.each do |department| %>
+                <tr>
+                  <td class="td1"><%= list_index %></td>
+                  <td class="td1"><%= department.name %></td>
+                  <td class="td1"><%= department.parent %></td>
+                  <td class="td1"><%= department.state_text %></td>
+                  <td class="td1"><%= department.created_at.to_date %></td>
+                  <td class="td1">
+                    <% if department.state.to_i == CommonActiveRecord::ENABLED %>
+                        <%= link_to '[禁用]', :action => :disable,:id => department.id %>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <% else %>
+                        <%= link_to '[启用]', :action => :enable,:id => department.id %>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <% end %>
+                    <%= link_to '[新增]', :action => :new %>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <%= link_to '[编辑]', :action => :edit, :id => department.id %>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <%= link_to '[删除]', :action => :delete, :id => department.id %>&nbsp;&nbsp;&nbsp;&nbsp;
+                  </td>
+                </tr>
+            <% end %>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
 </tr>
 </table>
 </body>
