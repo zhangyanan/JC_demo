@@ -92,6 +92,7 @@
           <tr>
             <th  class="tab_firstline">编号</th>
             <th class="tab_firstline">姓名</th>
+            <th class="tab_firstline">卡号</th>
             <th class="tab_firstline">性别</th>
             <th class="tab_firstline">生日</th>
             <th class="tab_firstline">所属部门</th>
@@ -103,6 +104,7 @@
               <tr>
                 <td class="td1"><%= list_index %></td>
                 <td class="td1"><%= employee.name %></td>
+                <td class="td1"><%= employee.card.card_number %></td>
                 <td class="td1"><%= employee.sex.to_i == 1 ? '男' : '女' %></td>
                 <td class="td1"><%= employee.birthday.to_date %></td>
                 <td class="td1"><%= employee.department.name %></td>
