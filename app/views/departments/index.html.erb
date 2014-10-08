@@ -90,7 +90,7 @@
                   <td class="td1"><%= department.name %></td>
                   <td class="td1"><%= department.parent %></td>
                   <td class="td1"><%= department.state_text %></td>
-                  <td class="td1"><%= department.created_at.to_date %></td>
+                  <td class="td1"><%= format_datetime department.created_at %></td>
                   <td class="td1">
                     <% if department.state.to_i == CommonActiveRecord::ENABLED %>
                         <%= link_to '[禁用]', :action => :disable,:id => department.id %>&nbsp;&nbsp;&nbsp;&nbsp;

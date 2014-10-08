@@ -109,7 +109,7 @@
                 <td class="td1"><%= employee.birthday.to_date %></td>
                 <td class="td1"><%= employee.department.name %></td>
                 <td class="td1"><%= employee.state_text %></td>
-                <td class="td1"><%= employee.created_at.to_date %></td>
+                <td class="td1"><%= format_datetime employee.created_at %></td>
                 <td class="td1">
                   <%= link_to  '[新增]',:action => :new %>&nbsp;&nbsp;&nbsp;&nbsp;
                   <%= link_to  '[编辑]',:action => :edit,:id => employee.id %>&nbsp;&nbsp;&nbsp;&nbsp;
