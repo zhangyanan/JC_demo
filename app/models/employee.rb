@@ -2,6 +2,7 @@
 class Employee < ActiveRecord::Base
   attr_accessible :birthday, :code, :department_id, :expired_at, :id, :name, :remark, :sex, :state
 
+  belongs_to :department
   MALE = 1 #男
   FEMALE = 0 #女
 
@@ -26,7 +27,4 @@ class Employee < ActiveRecord::Base
     end
   end
 
-  def department_name
-    return Department.find(self.department_id).name
-  end
 end
