@@ -3,6 +3,6 @@ class Record < ActiveRecord::Base
 
   include CommonActiveRecord
 
-  has_many :card_records
-  has_many :cards,:through => :card_records
+  belongs_to :card
+  belongs_to :terminal
 end
