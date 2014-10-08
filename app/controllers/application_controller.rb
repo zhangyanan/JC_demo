@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
     User.find session[:user_id] rescue nil
   end
 
+  def current_card
+    current_user.card
+  end
+
   def logged_in?
     current_user != nil
   end
