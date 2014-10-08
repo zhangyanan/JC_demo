@@ -67,6 +67,7 @@
           <tr>
             <th  class="tab_firstline">编号</th>
             <th class="tab_firstline">部门名称</th>
+            <th class="tab_firstline">上级部门</th>
             <th class="tab_firstline">部门状态</th>
             <th class="tab_firstline">创建日期</th>
             <th class="tab_firstline">操作</th>
@@ -75,6 +76,7 @@
               <tr>
                 <td class="td1"><%= list_index %></td>
                 <td class="td1"><%= department.name %></td>
+                <td class="td1"><%= department.parent %></td>
                 <td class="td1"><%= department.state %></td>
                 <td class="td1"><%= department.created_at.to_date %></td>
                 <td class="td1">

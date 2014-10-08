@@ -2,7 +2,7 @@
 class DepartmentsController < ApplicationController
   def index
     @title = "当前位置 部门列表"
-    @departments = Department.all
+    @departments = Department.where("parent_id is not null")
   end
 
   def show
