@@ -1,83 +1,44 @@
+#encoding:utf-8
 class TerminalsController < ApplicationController
-  # GET /terminals
-  # GET /terminals.json
   def index
+    @title = "当前位置 终端列表"
     @terminals = Terminal.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @terminals }
-    end
   end
 
-  # GET /terminals/1
-  # GET /terminals/1.json
-  def show
-    @terminal = Terminal.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @terminal }
-    end
-  end
-
-  # GET /terminals/new
-  # GET /terminals/new.json
   def new
+    @title = "当前位置 新建终端"
     @terminal = Terminal.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @terminal }
-    end
   end
 
-  # GET /terminals/1/edit
   def edit
+    @title = "当前位置 编辑终端"
     @terminal = Terminal.find(params[:id])
   end
 
-  # POST /terminals
-  # POST /terminals.json
   def create
     @terminal = Terminal.new(params[:terminal])
-
-    respond_to do |format|
-      if @terminal.save
-        format.html { redirect_to @terminal, notice: 'Terminal was successfully created.' }
-        format.json { render json: @terminal, status: :created, location: @terminal }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @terminal.errors, status: :unprocessable_entity }
-      end
-    end
+    @terminal.save
+    redirect_to :action => :index
   end
 
-  # PUT /terminals/1
-  # PUT /terminals/1.json
   def update
-    @terminal = Terminal.find(params[:id])
-
-    respond_to do |format|
-      if @terminal.update_attributes(params[:terminal])
-        format.html { redirect_to @terminal, notice: 'Terminal was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @terminal.errors, status: :unprocessable_entity }
-      end
+    Terminal.transaction do
+      @terminal = Terminal.find(params[:id])
+      @terminal.update_attributes(params[:@terminal])
+      @terminal.save
+      redirect_to :action => :index
     end
   end
 
-  # DELETE /terminals/1
-  # DELETE /terminals/1.json
-  def destroy
+  def delete
     @terminal = Terminal.find(params[:id])
     @terminal.destroy
+    redirect_to :action => :index
+  end
 
-    respond_to do |format|
-      format.html { redirect_to terminals_url }
-      format.json { head :no_content }
-    end
+  def query
+    @title = "当前位置 终端搜索"
+    @terminals = Terminal.where("name like ?","%#{params[:name]}%")
+    render :action => :index
   end
 end
