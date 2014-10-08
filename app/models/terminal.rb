@@ -3,4 +3,5 @@ class Terminal < ActiveRecord::Base
   include CommonActiveRecord
 
   has_many :records
+
 end
