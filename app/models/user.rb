@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :role_users
   has_many :roles, through: :role_users
   has_many :projects
+  has_one :card
 
 
   attr_accessible :name,:description,:state

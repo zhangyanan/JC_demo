@@ -3,4 +3,5 @@ class Card < ActiveRecord::Base
 
   belongs_to :employee
   has_many :records
+  belongs_to :user
 end
