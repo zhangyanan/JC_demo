@@ -1,9 +1,11 @@
 #encoding:utf-8
 class RecordsController < ApplicationController
   def index
+    #p DateTime.new(DateTime.current.year,DateTime.current.month,DateTime.current.day,8,30,0) -
     @title = "当前位置 考勤记录"
     @record = Record.new
-    @work_states = [["上班",1],["下班",2]]
+    @in_out_states = [["上班",1],["下班",2]]
+    @work_states = [["正常",1],["迟到",2],["请假",3],["公出",4]]
     @records = set_paginate Record.order("created_at")
   end
 
@@ -48,11 +50,12 @@ class RecordsController < ApplicationController
   end
 
   def query
+    p DateTime.new(DateTime.current.year,DateTime.current.month,DateTime.current.day,8,30,0)
     p "1111111111111"
-    @records = Record
-    if params[:name]
-      p params[:name]
+    if params[:name_]
+      p params[:name_]
       #@records = @records.where("")
     end
+    render :action => :index
   end
 end

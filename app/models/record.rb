@@ -21,13 +21,11 @@ class Record < ActiveRecord::Base
   end
 
   def work_state
-    case self.created_at
-      when created_at < DateTime.current
+    case self.created_at < DateTime.new(DateTime.current.year, DateTime.current.month, DateTime.current.day, 8, 30, 0)
+      when true
         '正常上班'
-        When created_at > DateTime.new
+      when false
         '迟到'
-        When created_at == ''
-        '请假'
     end
   end
 end
