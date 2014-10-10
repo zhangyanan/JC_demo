@@ -4,8 +4,9 @@ class ApplicationController < ActionController::Base
   #helper_method:让controller中的方法在view中可用
   helper_method :admin?,:current_user,:logged_in?,:current_role
 
+  #caching with instance variables:有更好的性能
   def current_user
-    User.find session[:user_id] rescue nil
+    @current_user ||= User.find session[:user_id] rescue nil
   end
 
   def current_card
