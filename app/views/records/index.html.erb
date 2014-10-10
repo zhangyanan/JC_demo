@@ -68,7 +68,33 @@
               <% end %>
             </tr>
           </table>
-            <%= render 'records/records' %>
+          <table class="simpleTable">
+            <tr>
+              <th class="tab_firstline">编号</th>
+              <th class="tab_firstline">姓名</th>
+              <th class="tab_firstline">卡号</th>
+              <th class="tab_firstline">终端ip</th>
+              <th class="tab_firstline">上下班</th>
+              <th class="tab_firstline">考勤时间</th>
+              <th class="tab_firstline">考勤状态</th>
+              <th class="tab_firstline">操作</th>
+            </tr>
+            <% @records.each do |record| %>
+                <tr>
+                  <td class="td1"><%= list_index %></td>
+                  <td class="td1"><%= record.card.employee.name %></td>
+                  <td class="td1"><%= record.card.card_number %></td>
+                  <td class="td1"><%= record.terminal.remote_id %></td>
+                  <td class="td1"><%= record.in_out_text %></td>
+                  <td class="td1"><%= format_datetime record.created_at %></td>
+                  <td class="td1"><%= record.work_state %></td>
+                  <td class="td1">
+                    <%= link_to '[修改]', :action => :edit, :id => record.id %>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <%= link_to '[删除]', :action => :delete, :id => record.id %>&nbsp;&nbsp;&nbsp;&nbsp;
+                  </td>
+                </tr>
+            <% end %>
+          </table>
         </td>
       </tr>
     </table>
