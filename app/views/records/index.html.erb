@@ -51,13 +51,12 @@
           <table class="simpleTable" style="width:70%;float:left;">
             <tr>
               <%= form_for :record, :url => {:controller => :records, :action => :query} do |f| %>
-                  <td  class="td1">按姓名搜索：<%= select :employee_id,'',Employee.all.collect{|c|[c.name,c.id]} %></td>
-                  <td  class="td1">按卡号搜索：<%= select :card_id,'',Card.all.collect{|c|[c.card_number,c.id]} %></td>
-                  <td  class="td1">终端搜索：<%= select :terminal_id,'',Terminal.all.collect{|c|[c.remote_id,c.id]} %></td>
-                  <td  class="td1">上下班：<%= select :in_out_state,'',options_for_select(INOUT) %></td>
-                  <td  class="td1">考勤状态：<%= select :work_state,'',options_for_select(WORKSTATES) %></td>
+                  <td  class="td1">按姓名搜索：<%= select :employee,'id',Employee.all.collect{|c|[c.name,c.id]},{include_blank: true } %></td>
+                  <td  class="td1">按卡号搜索：<%= select :card,'id',Card.all.collect{|c|[c.card_number,c.id]},{include_blank: true }  %></td>
+                  <td  class="td1">终端搜索：<%= select :terminal,'id',Terminal.all.collect{|c|[c.remote_id,c.id]},{include_blank: true }  %></td>
+                  <td  class="td1">上下班：<%= select :record,'in_out',options_for_select(@in_out),{include_blank: true } %></td>
+                  <td  class="td1">考勤状态：<%= select :work,'state',options_for_select(@work_states),{include_blank: true }  %></td>
                   <td><%= f.submit "查询",:class=> "button_blue" %></td>
-
               <% end %>
             </tr>
           </table>

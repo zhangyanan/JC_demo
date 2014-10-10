@@ -1,9 +1,12 @@
 #encoding:utf-8
 class RecordsController < ApplicationController
-  INOUT = [["上班",1],["下班",2]]
-  WORKSTATES = [["正常",1],["迟到",2],["请假",3],["公出",4]]
+
+  INOUTSTATES = ["上班",1],["下班",2]
+  WORKSTATES = ["正常",1],["迟到",2],["请假",3],["公出",4]
 
   def index
+    @in_out = INOUTSTATES
+    @work_states = WORKSTATES
     @title = "当前位置 考勤记录"
     @record = Record.new
     @records = set_paginate Record.order("created_at")
@@ -50,22 +53,35 @@ class RecordsController < ApplicationController
   end
 
   def query
-    p params[:employee_id]
-    if params[:employee_id]
-      @records = @records.join(:card).where("cards.employee_id = ?",params[:employee_id])
+    @title = "当前位置 考勤记录检索"
+    p "9999999999999999999"
+    @record = Record.new
+    @records = Record.all
+    @in_out = INOUTSTATES
+    @work_states = WORKSTATES
+    unless params["employee"]["id"].blank?
+      p "111111111111111"
+      @employee = Employee.find(params["employee"]["id"])
+      @records = @employee.card.records
     end
-    if param[:card_id]
-
+    unless params["card"]["id"].blank?
+      p "222222222"
+      @card = Card.find(params["card"]["id"])
+      @records = @card.records
     end
-    if params[:terminal_id]
-
+    unless params["terminal"]["id"].blank?
+      p "3333333333"
+      @terminal = Terminal.find(params["terminal"]["id"])
+      @records = @terminal.records
     end
-    if params[:in_out_state]
-
+    unless params["record"]["in_out"].blank?
+      p "4444444444"
+      @records = @records.find_all_by_in_out(params["record"]["in_out"])
     end
-    if params[:work_state]
-
-    end
+    #unless params["work"]["state"].blank?
+    #  @records = @records.find_all_by_created_at(params["record"]["in_out"])
+    #end
+    @records = @records.paginate(:page => params[:page],:per_page => 20)
     render :action => :index
   end
 end
