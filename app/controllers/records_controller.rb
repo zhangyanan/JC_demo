@@ -2,7 +2,7 @@
 class RecordsController < ApplicationController
 
   INOUTSTATES = ["上班",1],["下班",2]
-  WORKSTATES = ["正常",1],["迟到",2],["请假",3],["公出",4]
+  WORKSTATES = ["正常",1],["迟到",2]
 
   def index
     @in_out = INOUTSTATES
@@ -54,34 +54,37 @@ class RecordsController < ApplicationController
 
   def query
     @title = "当前位置 考勤记录检索"
-    p "9999999999999999999"
     @record = Record.new
-    @records = Record.all
+    @records = Record
     @in_out = INOUTSTATES
     @work_states = WORKSTATES
     unless params["employee"]["id"].blank?
-      p "111111111111111"
       @employee = Employee.find(params["employee"]["id"])
       @records = @employee.card.records
     end
     unless params["card"]["id"].blank?
-      p "222222222"
       @card = Card.find(params["card"]["id"])
       @records = @card.records
     end
     unless params["terminal"]["id"].blank?
-      p "3333333333"
       @terminal = Terminal.find(params["terminal"]["id"])
       @records = @terminal.records
     end
     unless params["record"]["in_out"].blank?
-      p "4444444444"
       @records = @records.find_all_by_in_out(params["record"]["in_out"])
     end
-    #unless params["work"]["state"].blank?
-    #  @records = @records.find_all_by_created_at(params["record"]["in_out"])
-    #end
-    @records = @records.paginate(:page => params[:page],:per_page => 20)
+    @date = params["record"]["created_at"].to_datetime
+    p "----"
+    p params[:created_at]
+    unless params["work"]["state"].blank?
+      case params["work"]["state"]
+        when 1
+          @records = @records.where("created_at < ?",DateTime.new(@date.year, @date.month, @date.day, 8, 30, 0))
+        when 2
+          @records = @records.where("created_at > ? and < ?",DateTime.new(@date.year, @date.month, @date.day, 8, 30, 0),DateTime.new(@date.year, @date.month, @date.day, 17, 30, 0))
+      end
+    end
+    @records = set_paginate @records
     render :action => :index
   end
 end
