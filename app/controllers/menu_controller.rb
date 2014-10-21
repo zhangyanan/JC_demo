@@ -2,7 +2,7 @@
 class MenuController < ApplicationController
   def index
     @title = "当前位置 菜单列表"
-    @menus = set_paginate Menu.order("id ASC")
+    @menus = Menu.all
   end
 
   def edit

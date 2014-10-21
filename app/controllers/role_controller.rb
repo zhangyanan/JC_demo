@@ -4,7 +4,7 @@ class RoleController < ApplicationController
 
   def index
     @title = "当前位置 角色列表"
-    @roles = set_paginate Role.order("id ASC")
+    @roles =  Role.all
   end
 
   def new

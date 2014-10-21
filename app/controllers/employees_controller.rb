@@ -3,7 +3,7 @@ class EmployeesController < ApplicationController
   STATES = [["在职",Employee::ONJOIB],["离职",Employee::OFFJOIB,2],["出差",Employee::AWAYJOIB,3],["产假",Employee::MATERNITYlEAVE,4],["陪产假",Employee::PATERNITYlEAVE,5]]
   def index
     @title = "当前位置 员工列表"
-    @employees = set_paginate Employee.order('name')
+    @employees = Employee.all
   end
 
   def show

@@ -9,47 +9,20 @@ class RecordsController < ApplicationController
     @work_states = WORKSTATES
     @title = "当前位置 考勤记录"
     @record = Record.new
-    @records = set_paginate Record.order("created_at")
-  end
-
-  def show
-    @record = Record.find(params[:id])
+    @records = Record.all
   end
 
   def new
     Record.transaction do
       @record = Record.new
       @record.terminal = Terminal.find_by_remote_id request.env["HTTP_X_FORWARDED_FOR"] || request.remote_ip
-      @record.in_out = 1
+      p Record.in_out_state
+      @record.in_out = Record.in_out_state
       @record.created_at = DateTime.current
       @record.card = current_user.card
       @record.save
     end
     redirect_to :action => :index
-  end
-
-  def edit
-    @record = Record.find(params[:id])
-  end
-
-  def create
-    Record.transaction do
-      @record = Record.new
-      @record.terminal_id = request.env["HTTP_X_FORWARDED_FOR"] || request.remote_ip
-      @record.in_out = 1
-      @record.created_at = DateTime.current
-      @record.card = current_user.card
-      @record.save
-    end
-  end
-
-  def update
-    @record = Record.find(params[:id])
-  end
-
-  def destroy
-    @record = Record.find(params[:id])
-    @record.destroy
   end
 
   def query
@@ -74,8 +47,6 @@ class RecordsController < ApplicationController
       @records = @records.find_all_by_in_out(params["record"]["in_out"])
     end
     @date = params["record"]["created_at"].to_datetime
-    p "----"
-    p params[:created_at]
     unless params["work"]["state"].blank?
       case params["work"]["state"]
         when 1
