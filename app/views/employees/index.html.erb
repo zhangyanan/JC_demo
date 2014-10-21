@@ -9,31 +9,6 @@
         $("#searchUser").click(function(){
             $('#searchForm').submit();
         });
-
-
-        <% unless @page_info[:current] == 1%>
-        $(".page_first").click(function () {
-            location.href = "<%= url_for params.merge(:page => 1)%>"
-        });
-        $(".page_prev").click(function () {
-            location.href = "<%= url_for params.merge(:page => @page_info[:current] - 1)%>"
-        });
-        <% end %>
-        <% unless @page_info[:current] == @page_info[:count] %>
-        $(".page_last").click(function () {
-            location.href = "<%= url_for params.merge(:page => @page_info[:count])%>"
-        });
-        $(".page_next").click(function () {
-            location.href = "<%= url_for params.merge(:page => @page_info[:current] + 1)%>"
-        });
-        <% end %>
-        <% if @page_info[:count] > 1 %>
-        $(".page_go").click(function () {
-            if ($('#paginate').val() <=<%=@page_info[:count]%>)
-                    <% urls = url_for(params.merge(:page => 1)).split("?") %>
-                location.href = "<%= (urls[0].split("/")[0..-2].join("/") + "/").html_safe %>" + $('#paginate').val() + "<%= ("?" + urls[1]).html_safe if urls[1] %>"
-        });
-        <% end %>
     })
 </script>
 <body>
@@ -122,6 +97,5 @@
   </table></td>
 </tr>
 </table>
-<div style="float:right;"><%= show_paginate  %></div>
 </body>
 </html>
