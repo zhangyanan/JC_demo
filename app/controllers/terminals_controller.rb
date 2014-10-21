@@ -24,7 +24,7 @@ class TerminalsController < ApplicationController
   def update
     Terminal.transaction do
       @terminal = Terminal.find(params[:id])
-      @terminal.update_attributes(params[:@terminal])
+      @terminal.update_attributes(params[:terminal])
       @terminal.save
       redirect_to :action => :index
     end
@@ -40,5 +40,19 @@ class TerminalsController < ApplicationController
     @title = "当前位置 终端搜索"
     @terminals = Terminal.where("name like ?","%#{params[:name]}%")
     render :action => :index
+  end
+
+  def disable
+    @terminal = Terminal.find(params[:id])
+    @terminal.state = CommonActiveRecord::DISABLED
+    @terminal.save
+    redirect_to :action => :index
+  end
+
+  def enable
+    @terminal = Terminal.find(params[:id])
+    @terminal.state = CommonActiveRecord::ENABLED
+    @terminal.save
+    redirect_to :action => :index
   end
 end

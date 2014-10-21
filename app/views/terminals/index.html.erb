@@ -67,11 +67,18 @@
                   <td class="td1"><%= list_index %></td>
                   <td class="td1"><%= terminal.name %></td>
                   <td class="td1"><%= terminal.state_text %></td>
-                  <td class="td1"><%= terminal.remote_ip %></td>
+                  <td class="td1"><%= terminal.remote_id %></td>
                   <td class="td1">
                     <%= link_to  '[新增]',:action => :new %>&nbsp;&nbsp;&nbsp;&nbsp;
                     <%= link_to '[编辑]',:action => :edit,:id => terminal.id %>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <%= link_to  '[删除]',:action => :delete ,:id => terminal.id %> </td>
+                    <%= link_to  '[删除]',:action => :delete ,:id => terminal.id %>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <% if terminal.state.to_i == CommonActiveRecord::ENABLED %>
+                        <%= link_to  '[禁用]',:action => :disable ,:id => terminal.id %>
+                    <% else %>
+                        <%= link_to  '[启用]',:action => :enable ,:id => terminal.id %>
+                    <% end %>
+                  </td>
+
                 </tr>
             <% end %>
           </table>
