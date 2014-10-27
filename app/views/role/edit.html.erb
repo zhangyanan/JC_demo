@@ -20,6 +20,7 @@
           <td align="right">权限：</td>
           <td>
             <table>
+              <% unless @rights.blank? %>
               <% @rights.each_slice(5) do |rights| %>
                   <tr>
                     <% rights.each do |right| %>
@@ -28,6 +29,9 @@
                         </td>
                     <% end %>
                   </tr>
+              <% end %>
+              <% else %>
+              <tr><td>无任何权限!</td></tr>
               <% end %>
             </table>
           </td>
