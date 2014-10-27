@@ -90,7 +90,6 @@
               <th  class="tab_firstline">序号</th>
               <th class="tab_firstline">菜单名称</th>
               <th class="tab_firstline">父级菜单</th>
-              <th class="tab_firstline_last">对应权限</th>
               <th class="tab_firstline_last">状态</th>
               <th class="tab_firstline_last">操作</th>
             </tr>
@@ -99,7 +98,6 @@
                   <td class="td1"><%= list_index %></td>
                   <td class="td1"><%= menu.name %></td>
                   <td class="td1"><%= menu.parent.name if menu.parent %></td>
-                  <td class="td1"><%= menu.menu_right %></td>
                   <td class="td1"><%= menu.state_text %></td>
                   <td class="td1">
                     <% if menu.state == Menu::ENABLED %>
